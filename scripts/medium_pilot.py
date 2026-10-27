@@ -2,7 +2,12 @@
 import argparse
 import json
 from pathlib import Path
-import resource
+import sys
+
+try:
+    import resource
+except ImportError:
+    resource = None
 import time
 
 import matplotlib
@@ -26,8 +31,11 @@ METADATA = Path("data/sample/verified/detectors.csv")
 
 def io_counts() -> dict[str, int]:
     """Linux process I/O counters, distinguishing logical from physical disk bytes."""
+    path = Path("/proc/self/io")
+    if not path.exists():
+        return {}
     return {key: int(value) for key, value in
-            (line.split(":") for line in Path("/proc/self/io").read_text(encoding="utf-8").splitlines())}
+            (line.split(":") for line in path.read_text(encoding="utf-8").splitlines())}
 
 
 def cohort() -> list[str]:
@@ -43,7 +51,11 @@ def coverage(output: Path) -> None:
     profile = run_bounded(SOURCE, output, START, END, detectors=cohort(), group_size=2)
     io = {key: value - before[key] for key, value in io_counts().items()}
     measured = {"wall_seconds": time.perf_counter() - started, "io": io,
-        "max_rss_kib_process": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "max_rss_kib_process": (
+            resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+            if resource is not None and sys.platform.startswith("linux")
+            else None
+        ),
         "detectors_requested": cohort(), "observed_detectors": int(profile.detector_id.nunique()),
         "lane_days": len(profile), "present_slots": int(profile.present_slots.sum()),
         "valid_slots": int(profile.valid_slots.sum()), "offline_slots": int(profile.offline_slots.sum()),
