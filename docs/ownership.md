@@ -4,14 +4,24 @@
 |---|---|---|
 | Member 1 — Traffic Data Engineering | `src/traffic_recovery/data/`, `tests/test_traffic*`, `tests/test_acquisition*`, `tests/test_quality*` | Historical acquisition, parsing, missingness, events and recovery labels. Next: coverage-filtered pilot and justified label definitions. |
 | Member 2 — Road Network and Spatial Analysis | `src/traffic_recovery/network/`, `tests/test_network*` | Official roads, directed graph, detector-road matching, upstream/downstream and spatial features. Next: version reconciliation and a manually checked small matching pilot. |
-| Member 3 — External Data and Context | `src/traffic_recovery/external/`, `tests/test_external*` | Verify weather, holidays, incidents/closures; parking/attractions only if feasible. Next: source/availability audit before any contextual joins. |
-| Member 4 — Machine Learning and Evaluation | `src/traffic_recovery/models/`, `tests/test_models*` | Baselines, Random Forest / XGBoost comparisons if justified, temporal splits, horizon evaluation, spatial ablation, interpretation and figures. Next: evaluation protocol, not model training until labels pass review. |
+| Member 3 — Frontend (temporary integration assignment) | `frontend/` | Event explorer, MapLibre, observation quality and ECharts. External/context work remains optional and deferred; coordinate any future change with the team. |
+| Member 4 — ML, Evaluation and API | `src/traffic_recovery/models/`, `src/traffic_recovery/api/`, `tests/test_models*`, `tests/test_api*` | Temporal baseline/evaluation and local FastAPI integration; actual research model fitting awaits approved cohort/labels/splits. |
 
-Names are placeholders for the team's assignment, not inferred identities. All four
+Temporary allocation follows the current user-requested handoff: Member 3 owns the frontend rather than external context, and Member 4 owns API integration in addition to models. Confirm with the team at the next meeting. Names are placeholders for the team's assignment, not inferred identities. All four
 participate in research design, verification, documentation and the poster.
 Package markers for external/models deliberately reserve boundaries without adding
 speculative implementations or heavy dependencies. The road audit is limited to
 schema/identifier inspection, not matching or graph construction.
+
+## Milestone-2 handoff (review pending)
+
+Member 1 now supplies `data/coverage.py`, `pilot_ingest.py`, `events.py` and
+`pilot.py`; Member 2 supplies `network/pilot.py`. Member 3's external module and
+Member 4's model module remain unchanged. Contract v0.2 records a **lane-unit**
+pilot and explicit outcome/feature separation, not approved segment-level labels.
+Member 1/4 must approve censoring, normal-speed reference and temporal splits;
+Member 2 must manually review maps, directions, turn handling and version validity.
+No PR approval is implied by implementation or passing tests. No ML was started.
 
 ## Shared interface changes
 

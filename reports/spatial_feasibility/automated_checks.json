@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "source_roads": 3197,
+  "directed_arcs": 4017,
+  "candidate_transitions": 7146,
+  "detector_candidates": 39,
+  "event_rows": 40,
+  "verified_human_matches": 0,
+  "verified_human_connections": 0,
+  "warning": "Automated geometry/source-field invariants only; not independent validation of real-world navigability or mapping accuracy."
+}

@@ -1,5 +1,9 @@
 # Milestone 1 verification record
 
+Subsequent records: [bounded-memory verification](pilot_memory_verification.md) and
+[medium-scale verification](medium_pilot.md). This document's results below remain
+the original milestone-1 results and are not updated retroactively.
+
 Executed **October 27, 2026**. No Git commit, push or merge was performed.
 The existing feature branch was `feature/bootstrap-data-audit` throughout.
 Pre-existing untracked `.agents/`, `.python-version`, `skills-lock.json` were

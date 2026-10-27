@@ -1,5 +1,9 @@
 # Real-data feasibility audit — milestone 1
 
+Historical record: milestone-2 coverage, events and spatial evidence are reported
+separately in [milestone2.md](milestone2.md). The numbers below remain milestone-1
+measurements; they have not been silently replaced by the expanded pilot.
+
 **Decision:** GO for a **coverage-filtered pilot**, not yet GO for finalized recovery
 labels, spatial matching or full-scale ML. Real historical retrieval and parsing
 work. Temporal coverage, validity, publication delay, ambiguous lanes and network

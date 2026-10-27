@@ -5,7 +5,90 @@ minutes**, and test whether neighboring-road conditions improve on local-only
 features. Core experiments: **November 4, 2026**; poster: **November 6–7**.
 Reproducible, authentic evidence takes priority over complexity.
 
-## Milestone 1 status
+## Local event explorer — first vertical slice
+
+A read-only FastAPI + DuckDB API and React/TypeScript/Vite + MapLibre/ECharts
+frontend can browse **real, provisional medium-pilot events** when the local
+checksummed Parquet evidence is present. This is a local development prototype,
+not a deployment, final research dataset, live traffic feed or trained model.
+It deliberately shows **prediction unavailable** and does not show unverified
+upstream/downstream relationships. Shared API/task contracts and parallel work:
+[team handoff](docs/team_tasks/README.md).
+
+From the repository root, in separate terminals:
+
+```text
+uv sync --locked
+uv run --locked uvicorn traffic_recovery.api.app:app --host 127.0.0.1 --port 8000
+npm ci --prefix frontend
+npm run dev --prefix frontend -- --host 127.0.0.1 --port 5173
+```
+
+Open `http://127.0.0.1:5173`. Vite proxies `/api` to the local backend. The API
+requires `data/local/pilot/medium-40/medium_events.parquet`, three corresponding
+`bins-*.parquet`, `reports/medium_pilot/statistics.json` and
+`data/sample/verified/detectors.csv` with checksum manifest. These inputs are
+verified at each request; missing or changed files return **503**, never synthetic
+fallbacks. Reproduce missing local data using [medium_pilot.md](docs/medium_pilot.md)
+and [pilot_memory_verification.md](docs/pilot_memory_verification.md). Event outcomes
+and curves include future observations and must never be treated as model features.
+The map uses external OpenStreetMap raster tiles (network and tile-provider policy
+apply); current detector coordinates and their datum/historical validity remain
+unverified. If tiles/WebGL fail, coordinates and event details still display.
+
+```text
+uv run --locked pytest
+npm run build --prefix frontend
+```
+
+Do not expose the development servers publicly or deploy them; no authentication,
+production hardening or prediction-serving registry exists. See the handoff for
+API schemas, known risks and next steps. Six spatial candidates remain pending
+human review: [review packets](reports/spatial_pair_review/README.md).
+
+## Milestone 2 — provisional coverage/event/spatial pilot
+
+The pilot implementation adds incremental Parquet ingestion, historical-only
+cohort/reference selection, censored 15/30/60-minute **within-horizon** labels,
+threshold sensitivity, real-event curves and a small source-topology matching pilot.
+The full pipeline was interrupted before completion; these are implemented capabilities,
+not verified full-pilot results. The [memory investigation](docs/pilot_memory_verification.md)
+records a successful limited real-data coverage benchmark and safe resumption.
+No ML training or dashboard. Definitions and [contract v0.2](docs/data_contract.md)
+remain pending team review.
+
+Large raw and derived data stay ignored in `data/local/pilot/`. The intended event
+output is `data/local/pilot/derived/events.parquet`, which has **not yet been produced**.
+Reports/figures are intended for `reports/milestone2/` after a validated full run.
+
+```text
+uv sync --locked
+uv run --locked python -m traffic_recovery.data.pilot_ingest --start 2026-10-07 --end 2026-10-21
+uv run --locked python -m traffic_recovery.data.pilot
+uv run --locked python -m traffic_recovery.network.pilot --acquire
+uv run --locked python scripts/verify_pilot.py
+uv run --locked pytest
+```
+
+Do not restart the full multi-day pipeline before reviewing the bounded-memory
+benchmark and constraints in [pilot_memory_verification.md](docs/pilot_memory_verification.md).
+The ingestion command acquires **15 archive dates** to cover 14 complete HKT
+observation days plus boundary records. Existing milestone-1 ZIPs are checksum-
+verified and reused automatically. Others use the official API with preserved
+HTTP evidence. Allow tens of minutes; XML is never bulk-extracted. `--acquire`
+fetches official TURN/INTERSECTION files and CENTERLINE if not already available
+(the latter is ~484 MB). Each module supports `--help` and portable `Path` options.
+To resume after interruption, rerun the identical pilot command in the foreground.
+Daily coverage checkpoints are fingerprinted and checksum-verified. The optional
+`--reuse-coverage` also verifies the aggregate coverage manifest and all daily
+checkpoints; it still rebuilds historical references and labels.
+
+**Important:** 90/95% coverage of sparse 5m bins is not continuous 30s coverage.
+Bins close at end +10m and require two positive-flow valid slots; a lane-based
+pilot is not road-segment ground truth. No spatial match or upstream/downstream
+pair is certified from proximity. Inspect the reports before using any labels.
+
+## Milestone 1 — historical verification
 
 Architecture, provisional contracts and a **real official-data feasibility audit**
 are implemented. No events/labels, ML training, dashboard or deployment yet.
@@ -31,9 +114,10 @@ uv run --locked traffic-audit --help
 
 Commands are intentionally single-line and shell-independent. `tzdata` is locked
 for systems without an OS timezone database. Python uses `pathlib.Path`, UTF-8
-and aware Asia/Hong_Kong times. Only pandas and tzdata are runtime dependencies;
-pytest is a development dependency. No API keys, database, Docker or GIS/ML
-framework installation is required for this milestone.
+and aware Asia/Hong_Kong times. Milestone 2 adds PyArrow (Parquet), Matplotlib
+(offline figures) and Shapely (metre geometry/topology) to pandas/tzdata; pytest
+is a development dependency. No GeoPandas, NetworkX, ML framework, API keys,
+database or Docker is required.
 
 ## Reproduce a small live audit first
 
@@ -96,8 +180,8 @@ The profile describes only the supplied sample, not the full audited period.
 
 ```text
 src/traffic_recovery/
-  data/        Member 1: acquisition, parsing, quality; events/labels next
-  network/     Member 2: schema audit; matching/graph/spatial features next
+  data/        Member 1: acquisition, coverage, provisional events/labels
+  network/     Member 2: source topology/matching pilot; certified features pending
   external/    Member 3: reserved for verified context features
   models/      Member 4: reserved for baselines/evaluation/ablation
 tests/         Offline tests; labeled synthetic fixtures + real samples
@@ -105,7 +189,7 @@ configs/       Configuration/range policy; no finalized event thresholds
 scripts/       Archive-boundary and exported-sample inspection CLIs
 docs/          Contracts, ownership, sources, audit and verification
 reports/       Portable measured audit JSON and request evidence
-figures/       Figure policy; no generated experiment plots yet
+figures/       Figure policy; pilot plots live in reports/milestone2/
 data/sample/verified/  Small authentic source samples + cleaned export
 data/local/           Ignored large evidence stores
 ```
@@ -122,10 +206,10 @@ requesting merge. Never commit secrets, large raw/processed datasets or models.
 Small authentic evidence is deliberately curated and checksummed. Synthetic
 fixtures are explicitly labeled and never represented as research observations.
 
-## Next milestone (not started)
+## After the pilot (not yet validated)
 
-Agree a coverage-filtered cohort, prediction unit and realistic availability policy;
-resolve ambiguous lanes/network versions and manually inspect direction-aware
-mapping; justify event/recovery/censoring rules and temporal/event split boundaries.
-Only then begin a reproducible local baseline and controlled spatial ablation.
-Optional context features require separate source verification.
+Review the measured censoring/sensitivity and sparse-bin interpretation; approve
+prediction unit, reference/availability rules and event-separated temporal splits.
+Manually verify detector matches and reconcile network versions before any spatial
+ablation. See the milestone-2 recommendation before authorizing a local baseline.
+Optional context features still require separate source verification.
