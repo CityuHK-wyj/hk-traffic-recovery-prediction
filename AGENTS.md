@@ -7,8 +7,8 @@ Authentic, traceable data and valid reproducible experiments outrank complexity.
 Core experiments: **November 4, 2026**. Poster: **November 6–7, 2026**.
 Outputs: audited datasets, justified event/label definitions, temporal evaluation,
 spatial ablation, documented limitations, reproducible reports and poster.
-Current milestone is architecture and feasibility only: no full ML system,
-dashboard, deployment, database or Docker requirement.
+Current milestone is the coverage-filtered event/label and spatial matching pilot:
+no full ML training, dashboard, deployment, database or Docker requirement.
 
 ## Engineering
 - Python **3.12**, `uv`, `pyproject.toml` and committed `uv.lock`.

@@ -1,0 +1,92 @@
+{
+  "reference_start": "2026-10-18T00:00:00+08:00",
+  "reference_end": "2026-10-20T00:00:00+08:00",
+  "event_end": "2026-10-21T00:00:00+08:00",
+  "reference_lanes": 98,
+  "reference_detectors": 39,
+  "baseline_rule": "85th percentile usable positive-flow bins, >=300 bins, available before fit end",
+  "cohort": "first 40 detector metadata IDs, convenience sample; not coverage-selected or independent roads",
+  "rules": "0.5 congestion two bins; 0.8 recovery three bins; 10m archive closure; fully observed within labels",
+  "labels": {
+    "events": 40,
+    "horizons": {
+      "15": {
+        "positive": 5,
+        "negative": 32,
+        "unknown": 3,
+        "reasons": {
+          "observed_without_recovery": 32,
+          "confirmed_recovery": 5,
+          "missing_or_invalid_bin": 3
+        }
+      },
+      "30": {
+        "positive": 8,
+        "negative": 28,
+        "unknown": 4,
+        "reasons": {
+          "observed_without_recovery": 28,
+          "confirmed_recovery": 8,
+          "missing_or_invalid_bin": 4
+        }
+      },
+      "60": {
+        "positive": 12,
+        "negative": 23,
+        "unknown": 5,
+        "reasons": {
+          "observed_without_recovery": 23,
+          "confirmed_recovery": 12,
+          "missing_or_invalid_bin": 5
+        }
+      }
+    }
+  },
+  "termination_counts": {
+    "recovered": 31,
+    "missing_or_invalid_bin": 8,
+    "period_end": 1
+  },
+  "event_detector_count": 13,
+  "event_lane_count": 29,
+  "detector_direction_onset_groups": 28,
+  "event_row_checks": {
+    "status": "passed",
+    "events_checked": 40,
+    "checks": [
+      "historical reference boundary",
+      "onset persistence and availability",
+      "complete follow-up",
+      "sustained recovery",
+      "horizon labels and censoring",
+      "monotonicity",
+      "same-lane 60-minute separation"
+    ]
+  },
+  "figures": [
+    "reports/medium_pilot/figures/event-c6b9fb6e53f2497c0f6a.png",
+    "reports/medium_pilot/figures/event-7af917722bed1f2795f2.png",
+    "reports/medium_pilot/figures/event-77d490078ad446ce761e.png",
+    "reports/medium_pilot/figures/event-2b2a3b441264146df51c.png",
+    "reports/medium_pilot/figures/event-f8bdd6cdab3beafdd1e0.png",
+    "reports/medium_pilot/figures/event-20ba1bb4d1d1225c1106.png"
+  ],
+  "reference_check": {
+    "status": "passed",
+    "detectors": [
+      "AID01101",
+      "AID01102"
+    ],
+    "archive_rows": 12720,
+    "unique_keys": 12720,
+    "bins": 1728,
+    "profile_rows": 6,
+    "scope": "one day/two detectors, all supplied capture files; existing in-memory rules"
+  },
+  "events_sha256": "cb661d3328689b391c960cfc7f9269a69cd279038ec6c127e1ce28d6d04cdf4c",
+  "bin_sha256": {
+    "bins-20261018.parquet": "2b6b7ac9e245b7ede0c0ce5858939c81cd70bfe58aee2f9e94014b21a52d050b",
+    "bins-20261019.parquet": "01a109fd575ff8ebe3554e4aa3e5f8eae530ecc595f9ea6ddd3321e1ce7c4c57",
+    "bins-20261020.parquet": "3861d963221669cf110bb340cf16e85ece2ce584c4566a2953948194fc979334"
+  }
+}

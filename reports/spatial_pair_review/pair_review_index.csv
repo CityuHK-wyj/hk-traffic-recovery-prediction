@@ -1,0 +1,7 @@
+pair,upstream_candidate,downstream_candidate,from_arc,to_arc,intersection_id,source_elevation,related_turn_records,review_status,figure,network_version
+1,AID01114,AID01115,104767:F,104875:F,22530,0,0,pending,pair-1.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2
+2,AID01125,AID01126,57654:F,57646:F,23255,0,0,pending,pair-2.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2
+3,AID01125,AID01127,57654:F,57646:F,23255,0,0,pending,pair-3.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2
+4,AID01126,AID01128,57646:F,61683:F,24426,0,0,pending,pair-4.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2
+5,AID01127,AID01128,57646:F,61683:F,24426,0,0,pending,pair-5.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2
+6,AID01111,AID01112,104992:F,105213:F,23025,0,0,pending,pair-6.png,centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2

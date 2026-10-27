@@ -1,7 +1,10 @@
-# Shared data contract — initial proposals, version 0.1
+# Shared data contract — pilot interfaces, version 0.2 (review pending)
 
-**Status:** Only TD traffic parsing/cleaning and audit reports are implemented.
-Other tables below are proposed interfaces, not claims about available data.
+**Status:** TD parsing/cleaning, incremental Parquet coverage, provisional lane
+congestion/recovery labels and a small spatial matching pilot are implemented.
+These pilot interfaces are **not team-approved final scientific definitions**.
+Changes in this version require Member 1/2/4 review before ML adoption. External
+context, dynamic spatial features and final ML/metrics tables remain proposals.
 Owners/review process: [ownership.md](ownership.md). Verified field differences and
 limitations: [data_sources.md](data_sources.md), [data_audit.md](data_audit.md).
 Do not promote a proposal to stable until source records and owner handoffs pass review.
@@ -112,52 +115,97 @@ Public implemented APIs:
 - `EvidenceClient.fetch/json`, `list_versions`: evidence-preserving acquisition;
   listings are partitioned by date to avoid silent 10,000-result truncation.
 
-## 3. Congestion events and recovery labels — PROVISIONAL, not implemented
+## 3. Implemented pilot coverage, bins, events and labels — PROVISIONAL
 
-Prediction unit is unresolved: direction-specific detector aggregate versus matched
-road segment. Use `segment_id` only after its semantics and mapping are verified.
+**Unit:** `(detector_id, direction, lane_id)`, not a road segment or a detector
+aggregate. Exactly one historical-coverage-ranked lane per detector/direction is
+selected. No lane-to-road or detector-to-segment equivalence is implied.
+Configuration: [`configs/pilot.json`](../configs/pilot.json). Measured results and
+rationale: [milestone2.md](milestone2.md). Freeze requires team review.
 
-| Field | Proposed type | Meaning / constraint |
-|---|---|---|
-| `event_id` | string, primary key | Stable hash/ID from unit, onset and event-definition version |
-| `segment_id` or `detector_id`, direction | string | Exactly one approved unit definition per dataset version |
-| `onset_time` | aware datetime | First confirmed congestion onset under reviewed rules |
-| `recovery_time` | nullable aware datetime | First **confirmed** sustained recovery time; future outcome, never a feature |
-| `event_end`, `censored_at` | nullable aware datetime | Follow-up boundary / observation censoring |
-| `definition_version`, `censor_reason` | string | Mandatory rule version; explicit unknown/insufficient coverage reason |
+### Files and measurement rules
 
-Proposed event-prediction table key: `(event_id, prediction_time)`. Add
-`prediction_time`, elapsed congestion/severity known at that time, `label_15m`,
-`label_30m`, `label_60m` (nullable Int8 in {0,1}), and per-horizon censor reasons.
-Keep the entire event and its prediction rows within a single split.
+- `data/local/pilot/lane_snapshots/YYYYMMDD.parquet`: compact source-linked rows,
+  raw-value signature, archive availability and explicit conflict flags. Original
+  XML ZIPs remain authoritative. Ingestion reads at most 32 snapshots/batch.
+- `derived/coverage_lane_day.parquet`: one observed-inventory lane/day, including
+  absent days. Denominator **2,880** 30-second interval ends per full HKT day.
+  Offline fraction is reported against both present and expected slots. Conflict
+  variants are all quarantined, identical repeats use earliest capture. Daily and
+  full-period missing gaps include edges and multi-day outages. Inventory is the
+  union of observed lane units, not a verified historical detector/lane register.
+- `derived/cohort_bins.parquet`: right-closed 5m bins `(t-5m,t]`, no interpolation.
+  `present_slots`, `valid_slots`, `flow_slots`, `offline_slots`, `conflict_slots`,
+  `repeat_rows` are counts, never inferred zeros for missing measurements.
+  `speed_kmh` is the median of source-valid speed slots with positive interval
+  volume. `usable` requires at least **two** such unique slots and no conflicts.
+  This is a sparse-sampling rule (as little as 20% of 30s slots), **not 90/95%
+  continuous observation coverage**. `valid_5m_coverage` only requires two valid
+  speed slots; `usable_5m_coverage` additionally applies positive-flow/conflict rules.
+- Feature-bin `available_at = bin_end + 10 minutes`, a fixed conservative archive
+  replay closure. Only captures at or before closure enter bin deduplication or
+  aggregation. `last_source_available_at <= available_at`; no retrospectively
+  observed late correction can alter an already closed feature bin. This is not a
+  verified producer publication latency. Raw-quality profiling retains late rows.
+- Cohort filtering uses only days before `selection_end`; the baseline fits only
+  `[observation_start, reference_end)` with **both** observation and availability
+  before the fit boundary. Reference is each lane's positive-speed 85th percentile
+  of usable positive-flow 5m medians, minimum 300 bins. It is a provisional normal
+  speed reference, not a verified posted/free-flow speed. No validation/test fit.
+
+### Event state machine and table
+
+`derived/events.parquet` has one prediction per event; key `event_id`. All times
+are aware HKT. Definition version: `lane-observed-confirmation-v1`.
+
+| Field | Type / meaning |
+|---|---|
+| `event_id`, unit keys | Stable rule/unit/onset hash; string detector/direction/lane |
+| `onset_time` | First low bin in a witnessed two-bin onset run |
+| `onset_confirmed_at` | Second low bin end, never a future-derived backdate |
+| `prediction_time` | Onset confirmation bin availability (bin end +10m) |
+| `feature_max_available_at` | Source/derived feature availability watermark, <= prediction |
+| `speed_kmh`, `speed_ratio`, `baseline_kmh`, `valid_slots`, `onset_observed_minutes` | **Only dynamic/numeric feature allowlist**; baseline is fitted history, duration is witnessed onset bins ×5m, not the true physical episode duration |
+| `recovery_time` | Nullable **observed confirmation bin end** of first three consecutive usable high bins; outcome, never feature |
+| `recovery_available_at` | Archive availability of that outcome bin, separate from observed recovery time |
+| `followup_end` | Last uninterrupted usable observation bin end before recovery, missingness or period end |
+| `termination_reason` | `recovered`, `missing_or_invalid_bin`, `period_end` |
+| `episode_separated_at` | Recovery end or later witnessed rearming after censoring; split-only outcome, not a positive-label override |
+| `label_{15,30,60}m` | Nullable Int8: 1/0/NA, with `reason_{h}m` |
+| ratios, persistence counts, `definition_version`, `reference_fit_end` | Mandatory provisional-rule/fit provenance |
+| `split_proposal` | `train`, `validation`, `test`, `purged`; not a finalized evaluation assignment |
+
+An initially low/unknown state is left-censored, not a fresh onset. Arm onset only
+following three consecutive usable recovery-ratio bins. Two consecutive bins at
+speed/reference <=0.5 confirm onset. Three consecutive bins >=0.8 confirm recovery;
+intermediate speeds keep an active episode open. Missing/invalid bins immediately
+right-censor follow-up and disarm onset; later recovery can establish separation
+but does not repair unknown earlier outcomes. A censored episode requires witnessed
+recovery before rearming. After every event require new onset and strictly more
+than 60 minutes between predictions on the same lane; suppress whole onsets during
+embargo rather than shifting them later. No same-unit overlapping label windows.
+Different detectors may still share roads/events; no statistical independence claim.
 
 ### WITHIN is not AT
 
-For an eligible still-congested prediction at time `t`, let `T` be the first
-confirmed sustained recovery **after t**. Proposed target:
+For prediction `t` and witnessed sustained confirmation `T`:
+`label_h = 1 iff t < T <= t+h`. Confirmation is **not backdated** to the first high
+bin. A positive stays positive if congestion recurs before the horizon endpoint;
+recovery exactly at the deadline counts. Outcomes may arrive after the horizon:
+their observed confirmation time, not retrieval time, defines the target. The 10m
+prediction lag is shorter than the minimum 15m recovery run, so the earliest
+qualifying post-onset confirmation cannot already precede prediction. The builder
+rejects a lag that violates this condition.
 
-`label_h = 1 iff t < T <= t + h`, for h in {15,30,60} minutes.
+A negative requires uninterrupted usable follow-up through `t+h` with no qualifying
+confirmation. A missing timestamp, offline bin, insufficient positive-flow slots,
+conflict or data end before the horizon yields NA, never automatic 0. Earlier
+fully observed horizons can remain 0 when longer horizons are censored. A confirmed
+recovery permits 1 without follow-up after that recovery. All jointly known labels
+are monotone. These labels concern sampled 5m sustained confirmation, **not proof
+that no unobserved physical recovery occurred between source observations**.
 
-This is **recovered at any qualifying time within the window**, even if congestion
-recurs before its endpoint. It is NOT `is_recovered(t+h)`. A vehicle/road recovering
-at t+10 and congesting again at t+14 is positive within 15 minutes, but may be
-negative under an endpoint-state definition. A recovery exactly at t+h is included.
-
-A proposed sustained-recovery rule would require consecutive sufficiently covered
-samples. If confirmation needs multiple intervals, `T` is the confirmation time,
-not a retrospectively backdated start that uses data beyond the horizon. Duration,
-thresholds, free-flow reference, hysteresis, onset/end persistence, recurrence
-merging, maximum permitted gaps and eligible prediction frequency are **unfixed**.
-They require a measured pilot, training-only estimation where applicable, rationale
-and sensitivity analysis. This milestone does not produce events or labels.
-
-`label_h = 0` requires adequate observable follow-up to exclude qualifying recovery
-through t+h; otherwise null/censored. Data ending before a horizon, gaps or offline
-periods must not automatically become negative examples. Known confirmed recovery
-may support a positive without complete later follow-up, subject to approved rules.
-For jointly observed labels enforce `label_15m <= label_30m <= label_60m`.
-
-## 4. Road network and spatial features — PROVISIONAL
+## 4. Road network and spatial features — PROVISIONAL pilot, review pending
 
 | Table / key | Proposed fields and types |
 |---|---|
@@ -169,8 +217,39 @@ For jointly observed labels enforce `label_15m <= label_30m <= label_60m`.
 Observed `TRAVEL_DIRECTION` values are 1 (both directions) and 3 (digitised direction
 only), not compass bearings. Respect grade separation and turn restrictions; do not
 connect crossing lines blindly. Current segment IDs and network versions have
-mismatches. An ID overlap is not spatial matching accuracy. No claimed reliable
-matching exists yet; static topology also requires a version/time-validity policy.
+mismatches. An ID overlap is not spatial matching accuracy. The implemented pilot
+in `network/pilot.py` uses source EPSG:2326 lines and detector grid coordinates,
+50m radius, local +/-10m tangent, 45-degree compass tolerance and a 10m ambiguity
+margin. These tolerances are provisional. Export all candidates, selected route,
+distance, bearing error, metadata disagreement, ambiguity and unmatched status.
+No match is certified before manual review/version reconciliation.
+
+`roads.parquet` holds source attributes and `geometry_wkb` (not GeoParquet CRS
+metadata; consult spatial manifest). `directed_arcs.parquet` has F/R route arcs,
+source direction codes and endpoint nodes rounded to 1cm plus source elevation.
+Candidate transitions require **shared endpoints**, never interior crossings or
+nearby detectors. Source TURN consecutive restricted route pairs are conservatively
+blocked, including multi-edge/conditional restrictions without pretending to solve
+path/time/vehicle conditions. U-turns are excluded. Fractional-position restrictions
+and source INTERSECTION memberships are exported for review; this is an incomplete,
+over-restricted endpoint graph, **not a validated routing/upstream network**.
+Current metadata/network versions remain unresolved; no spatial ML features exist.
+
+**Spatial feasibility extension, awaiting Member 1/2/4 review:**
+[spatial_feasibility.md](spatial_feasibility.md) records the source-backed subset,
+candidate maps and connection review table. `network/spatial_features.py` accepts
+only explicit `human_verified` mappings and directed transitions with reviewer,
+matching `network_version`, and a documented `[valid_from, valid_to)` interval.
+It uses a fixed, aware training-reference cutoff; latest usable same-lane/direction
+neighbor bins must both end and be available by prediction time and be no older
+than the configured tolerance. Unavailable means null speed/ratio; zero observed
+neighbors is a count, not an imputed traffic value. Coverage is observed divided
+by the **reviewed mapped-neighbor** count, null when that denominator is zero;
+it is not population-wide road coverage. Arc degree counts reviewed transitions
+only. Duplicate approved neighbor lanes are rejected rather than silently averaged.
+The medium real-event output contains **only null spatial measurements** until
+independent mapping/topology review and historical-version approval. A candidate
+or source-supported connection is not a `human_verified` connection.
 
 ## 5. External contextual features — PROVISIONAL, sources unverified
 

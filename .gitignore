@@ -219,6 +219,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Frontend dependencies and TypeScript incremental build state.
+node_modules/
+*.tsbuildinfo
+
 # Research data: keep only deliberately curated small samples in Git.
 /data/*
 !/data/sample/

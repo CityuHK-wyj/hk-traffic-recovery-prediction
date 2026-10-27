@@ -1,0 +1,87 @@
+{
+  "crs": "EPSG:2326",
+  "network_version": "centerline-sha256:4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2",
+  "mapping_version": "candidate-geometry-name-direction-v1",
+  "network_revision_cutoff_source": "\u6578\u64da\u4fee\u6b63\u622a\u6b62\u65e5\u671f / \u6570\u636e\u4fee\u6b63\u622a\u6b62\u65e5\u671f / Data revision cut-off date\n2026-10-08",
+  "subset_radius_m": 500,
+  "source_routes_in_subset": 3197,
+  "route_length_total_m": 303697.83808105096,
+  "directed_arcs": 4017,
+  "endpoint_graph": {
+    "nodes": 2709,
+    "weak_components": 156,
+    "largest_weak_component_nodes": 771
+  },
+  "coincident_endpoint_xy_multiple_elevations": 223,
+  "source_supported_candidate_detector_pairs": 6,
+  "connections": {
+    "source_supported_review_pending": 4952,
+    "rejected_restriction_or_uturn": 2194
+  },
+  "human_verified_connections": 0,
+  "connection_review_sample_count": 30,
+  "sample_touching_matched_arcs": 16,
+  "candidate_transitions_touching_matched_arcs": 72,
+  "turn_records_total": 11051,
+  "local_turn_records": 950,
+  "source_intersection_records_local": 2485,
+  "detector_direction_units": 39,
+  "automated_candidate_matches": 39,
+  "detector_units_with_ambiguous_matches": 23,
+  "unmatched": 0,
+  "human_verified_matches": 0,
+  "metadata_direction_mismatches": 8,
+  "all_candidates": 300,
+  "direction_incompatible_candidates": 162,
+  "direction_compatible_selected": 39,
+  "candidate_bearing_difference_degrees": {
+    "median": 22.196819300523487,
+    "max": 43.77869354516281
+  },
+  "selected_candidates_in_current_processed_ids": 38,
+  "current_processed_version": "20221210",
+  "prior_audit_processed_ids_missing_from_full_centerline": 23,
+  "selected_name_evidence_counts": {
+    "name_in_detector_description": 39
+  },
+  "candidate_distance_m": {
+    "min": 0.026218770002249116,
+    "median": 4.23591038857094,
+    "p90": 9.222125254957138,
+    "max": 15.250206724668445
+  },
+  "feature_rows": 40,
+  "feature_status": {
+    "mapping_unverified": 40
+  },
+  "events_with_verified_upstream_observations": 0,
+  "events_with_verified_downstream_observations": 0,
+  "sources": {
+    "data/local/audit-20261019-21/network_centerline.gml": "4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2",
+    "data/sample/verified/detectors.csv": "f30818ec94984c024f0188e2e45139ac684c4636aae7906561e227f01407423d",
+    "data/local/pilot/network_http/TURN.gml": "790ce25722354a796f59becc7c6adf82766ebb4289f96621ef118ed4179a38b0",
+    "data/local/pilot/network_http/INTERSECTION.gml": "79119240315ea989b18e715d54f7146ff8bcbc9c51aeb91ed46857c0bf72fa5f",
+    "data/local/pilot/network_http/DATA_LAST_UPDATED_DATE.csv": "a6dff494bf012a26aade39f03029f657dee2a08c6d25acb7c3248f7ff066b69c",
+    "reports/medium_pilot/reference.csv": "33839bf4112d3dee5969b9d751448ad9fdd61ce12a55bd013e1e82e035575852",
+    "data/sample/verified/segment_current.xml": "a9edd20afead12ad07995b1b3eb49f5a1e247152748cb015ad015bfd402d7b5e",
+    "reports/data_audit.json": "ea279f16c25ece2148b72fb3ca46501c5ddac1fe653e6bd35986f5459a094e4a",
+    "data/local/pilot/medium-40/medium_events.parquet": "cb661d3328689b391c960cfc7f9269a69cd279038ec6c127e1ce28d6d04cdf4c",
+    "data/local/pilot/medium-40/bins-20261018.parquet": "2b6b7ac9e245b7ede0c0ce5858939c81cd70bfe58aee2f9e94014b21a52d050b",
+    "data/local/pilot/medium-40/bins-20261019.parquet": "01a109fd575ff8ebe3554e4aa3e5f8eae530ecc595f9ea6ddd3321e1ce7c4c57",
+    "data/local/pilot/medium-40/bins-20261020.parquet": "3861d963221669cf110bb340cf16e85ece2ce584c4566a2953948194fc979334"
+  },
+  "limits": [
+    "all matching and connections require independent manual review and time-version reconciliation",
+    "endpoint graph may overrestrict source turns and miss interior topology",
+    "medium cohort is convenience-selected"
+  ],
+  "derived_sha256": {
+    "data/local/spatial-feasibility/source_roads.parquet": "b450f3548dc0e768cd951cd376945432b3a4ea18e5dc232879e9f46a394c3040",
+    "data/local/spatial-feasibility/directed_arcs.parquet": "15365dd858b87f1a61a1c2067fe971b26535ca27df37e064ee9c9d6e3b4688d6",
+    "data/local/spatial-feasibility/directed_transitions.csv": "85a8b2fb3a9f0c95799a2f5e4821385fe5d00e67a75dcad1859609c50f720a35",
+    "data/local/spatial-feasibility/spatial_features.parquet": "a9aa80e5282cb44597a41b910b4dee4ae00e0213d98fcf4ad76a4bc78920f43b",
+    "reports/spatial_feasibility/detector_mapping.csv": "3291036b2a59d515ae0a355592dbb732ae79faa52d32082fc6636bc4e68db9c8",
+    "reports/spatial_feasibility/matching_candidates.csv": "c7ed9f55971816869bbee3f3a2961cd6e6ae731ea25aec45c6c2edfba649ea6f",
+    "reports/spatial_feasibility/connection_review_sample.csv": "794e0d33fcf21c213f903421472542b7e7ba42045d81901e385192fc02baf628"
+  }
+}
