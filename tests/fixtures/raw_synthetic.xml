@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SYNTHETIC TEST FIXTURE ONLY. NOT A RESEARCH OBSERVATION. -->
+<raw_speed_volume_list>
+  <date>2026-01-01</date>
+  <periods><period>
+    <period_from>23:59:30</period_from><period_to>00:00:00</period_to>
+    <detectors><detector>
+      <detector_id>TEST001</detector_id><direction>North East</direction>
+      <lanes><lane><lane_id>Fast Lane</lane_id><speed>40</speed>
+        <occupancy>20</occupancy><volume>4</volume><s.d.>1.2</s.d.><valid>Y</valid>
+      </lane></lanes>
+    </detector></detectors>
+  </period></periods>
+</raw_speed_volume_list>

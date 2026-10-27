@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/SpeedVolOcc-BR.xsd",
+  "retrieved_at": "2026-10-27T08:18:13.720939+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/SpeedVolOcc-BR.xsd",
+  "headers": {
+    "content-type": "text/plain",
+    "content-length": "3445",
+    "date": "Tue, 27 Oct 2026 08:18:15 GMT",
+    "last-modified": "Thu, 20 May 2021 11:32:20 GMT",
+    "etag": "\"c0ed7912e8d0574786c278684d82c1b0\""
+  },
+  "bytes": 3445,
+  "sha256": "10bd69d4466011003ee1ee3acef0069bd99741a59a03d6f8f061670baa726684",
+  "body": "raw_schema.xsd",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

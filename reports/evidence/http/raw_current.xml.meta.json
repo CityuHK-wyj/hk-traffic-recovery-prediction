@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://resource.data.one.gov.hk/td/traffic-detectors/rawSpeedVol-all.xml",
+  "retrieved_at": "2026-10-27T08:16:31.875030+00:00",
+  "status": 200,
+  "final_url": "https://resource.data.one.gov.hk/td/traffic-detectors/rawSpeedVol-all.xml",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:16:34 GMT",
+    "content-type": "text/xml",
+    "content-length": "709224",
+    "last-modified": "Tue, 27 Oct 2026 08:14:33 GMT",
+    "etag": "\"ad268-65ece09536c40\""
+  },
+  "bytes": 709224,
+  "sha256": "cbdced7ff649351845d012ecc5d7b567890d5ccf39ae27cff1fa2c0dc4d2c822",
+  "body": "raw_current.xml",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

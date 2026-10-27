@@ -1,0 +1,132 @@
+{
+  "results": [
+    {
+      "file": "earliest_raw.xml",
+      "requested_time": "20210329-0908",
+      "error": "Empty traffic dataset"
+    },
+    {
+      "file": "earliest_segment.xml",
+      "requested_time": "20210330-0909",
+      "quality": {
+        "input_rows": 63,
+        "exact_duplicate_rows": 0,
+        "conflicting_keys_quarantined": 0,
+        "conflicting_rows_quarantined": 0,
+        "output_rows": 63,
+        "source_offline_rows": 63,
+        "unknown_validity_rows": 0,
+        "measurements": {
+          "speed": {
+            "missing_raw": 0,
+            "invalid_numeric": 0,
+            "clean_missing": 63,
+            "clean_missing_rate": 1.0
+          }
+        }
+      },
+      "observation_min": "2021-03-30T09:04:00+08:00",
+      "observation_max": "2021-03-30T09:04:00+08:00"
+    },
+    {
+      "file": "recent_raw.xml",
+      "requested_time": "20261026-2359",
+      "quality": {
+        "input_rows": 4164,
+        "exact_duplicate_rows": 0,
+        "conflicting_keys_quarantined": 0,
+        "conflicting_rows_quarantined": 0,
+        "output_rows": 4164,
+        "source_offline_rows": 4,
+        "unknown_validity_rows": 0,
+        "measurements": {
+          "speed": {
+            "missing_raw": 0,
+            "invalid_numeric": 0,
+            "clean_missing": 4,
+            "clean_missing_rate": 0.0009606147934678194
+          },
+          "occupancy": {
+            "missing_raw": 0,
+            "invalid_numeric": 4,
+            "clean_missing": 8,
+            "clean_missing_rate": 0.0019212295869356388
+          },
+          "volume": {
+            "missing_raw": 0,
+            "invalid_numeric": 0,
+            "clean_missing": 4,
+            "clean_missing_rate": 0.0009606147934678194
+          },
+          "sd": {
+            "missing_raw": 0,
+            "invalid_numeric": 0,
+            "clean_missing": 4,
+            "clean_missing_rate": 0.0009606147934678194
+          }
+        }
+      },
+      "observation_min": "2026-10-26T23:52:30+08:00",
+      "observation_max": "2026-10-26T23:53:00+08:00"
+    }
+  ],
+  "response_manifest": [
+    {
+      "requested_url": "https://app.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FrawSpeedVol-all.xml&time=20210329-0908",
+      "retrieved_at": "2026-10-27T08:43:06.134631+00:00",
+      "attempt": 1,
+      "status": 200,
+      "final_url": "https://historical-resource-download.oss-cn-hongkong.aliyuncs.com/7c383a978e42cfa2953886913b189fbb1e4bad34bf5d9b92598cc4e1aea8a25d/data/2021/03/29/20210329-0908-rawSpeedVol-all.xml",
+      "headers": {
+        "date": "Tue, 27 Oct 2026 08:43:09 GMT",
+        "content-type": "text/xml",
+        "content-length": "481",
+        "etag": "\"2B42C88D3A81305D6C6269B8D9941428\"",
+        "last-modified": "Thu, 16 May 2024 01:51:45 GMT",
+        "content-disposition": "attachment"
+      },
+      "bytes": 481,
+      "sha256": "2cceb89a78df3df9d27d2ca107aecb67e2fb4d616bc6f7b74b34afa91f670267",
+      "body": "earliest_raw.xml",
+      "completed_at": "2026-10-27T08:43:08.920825+00:00"
+    },
+    {
+      "requested_url": "https://app.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FirnAvgSpeed-all.xml&time=20210330-0909",
+      "retrieved_at": "2026-10-27T08:43:08.924467+00:00",
+      "attempt": 1,
+      "status": 200,
+      "final_url": "https://historical-resource-download.oss-cn-hongkong.aliyuncs.com/41ea58787a9f03af16587f422736fc133e1b894103d68738ed14388be3542383/data/2021/03/30/20210330-0909-irnAvgSpeed-all.xml",
+      "headers": {
+        "date": "Tue, 27 Oct 2026 08:43:13 GMT",
+        "content-type": "text/xml",
+        "content-length": "5513",
+        "etag": "\"F3DC277DD152AFC17C40EE55EFA7C573\"",
+        "last-modified": "Thu, 16 May 2024 00:44:53 GMT",
+        "content-disposition": "attachment"
+      },
+      "bytes": 5513,
+      "sha256": "7f2097b2c05287a67795b96fef30ca09446e650c525ef6f78ac44e225a5cad0b",
+      "body": "earliest_segment.xml",
+      "completed_at": "2026-10-27T08:43:12.952056+00:00"
+    },
+    {
+      "requested_url": "https://app.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FrawSpeedVol-all.xml&time=20261026-2359",
+      "retrieved_at": "2026-10-27T08:43:12.986711+00:00",
+      "attempt": 1,
+      "status": 200,
+      "final_url": "https://historical-resource-download.oss-cn-hongkong.aliyuncs.com/7c383a978e42cfa2953886913b189fbb1e4bad34bf5d9b92598cc4e1aea8a25d/data/2026/10/26/20261026-2359-rawSpeedVol-all.xml",
+      "headers": {
+        "date": "Tue, 27 Oct 2026 08:43:16 GMT",
+        "content-type": "text/xml",
+        "content-length": "707825",
+        "etag": "\"8497B609EDA29CA2E9B63C7A908087D0\"",
+        "last-modified": "Mon, 26 Oct 2026 15:59:00 GMT",
+        "content-disposition": "attachment"
+      },
+      "bytes": 707825,
+      "sha256": "d71f74a3d191e6fa6e1ab0ad42e5140a576c760f02df1245098e4eb43263ed5a",
+      "body": "recent_raw.xml",
+      "completed_at": "2026-10-27T08:43:16.695928+00:00"
+    }
+  ]
+}

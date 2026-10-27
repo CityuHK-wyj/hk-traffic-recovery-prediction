@@ -1,0 +1,73 @@
+{
+    "file-count": 4,
+    "files": [
+        {
+            "category-id": "transport",
+            "data_dictionary": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+            "dataset-id": "hk-td-sm_4-traffic-data-strategic-major-roads",
+            "dataset-name-en": "Traffic Data of Strategic / Major Roads",
+            "dataset-name-sc": "\u4e3b\u8981\u5e72\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6570\u636e",
+            "dataset-name-tc": "\u4e3b\u8981\u5e79\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6578\u64da",
+            "format": "xml",
+            "provider-id": "hk-td",
+            "resource-name-en": "Traffic Speeds of Road Network Segments (Processed Data) ",
+            "resource-name-sc": "\u9053\u8def\u7f51\u7edc\u8def\u6bb5\u7684\u884c\u8f66\u901f\u5ea6 (\u5904\u7406\u8fc7\u7684\u6570\u636e) ",
+            "resource-name-tc": "\u9053\u8def\u7db2\u7d61\u8def\u6bb5\u7684\u884c\u8eca\u901f\u5ea6 (\u8655\u7406\u904e\u7684\u6578\u64da) ",
+            "schema": "",
+            "total-size": 787214673,
+            "url": "https://resource.data.one.gov.hk/td/traffic-detectors/irnAvgSpeed-all.xml",
+            "version-count": 2061
+        },
+        {
+            "category-id": "transport",
+            "data_dictionary": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+            "dataset-id": "hk-td-sm_4-traffic-data-strategic-major-roads",
+            "dataset-name-en": "Traffic Data of Strategic / Major Roads",
+            "dataset-name-sc": "\u4e3b\u8981\u5e72\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6570\u636e",
+            "dataset-name-tc": "\u4e3b\u8981\u5e79\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6578\u64da",
+            "format": "xml",
+            "provider-id": "hk-td",
+            "resource-name-en": "Traffic Speed, Volume and Road Occupancy (Raw Data)",
+            "resource-name-sc": "\u4ea4\u901a\u6d41\u91cf\u3001\u884c\u8f66\u901f\u5ea6\u53ca\u9053\u8def\u4f7f\u7528\u60c5\u51b5 (\u539f\u59cb\u6570\u636e)",
+            "resource-name-tc": "\u4ea4\u901a\u6d41\u91cf\u3001\u884c\u8eca\u901f\u5ea6\u53ca\u9053\u8def\u4f7f\u7528\u60c5\u6cc1 (\u539f\u59cb\u6578\u64da)",
+            "schema": "",
+            "total-size": 2202847940,
+            "url": "https://resource.data.one.gov.hk/td/traffic-detectors/rawSpeedVol-all.xml",
+            "version-count": 3121
+        },
+        {
+            "category-id": "transport",
+            "data_dictionary": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+            "dataset-id": "hk-td-sm_4-traffic-data-strategic-major-roads",
+            "dataset-name-en": "Traffic Data of Strategic / Major Roads",
+            "dataset-name-sc": "\u4e3b\u8981\u5e72\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6570\u636e",
+            "dataset-name-tc": "\u4e3b\u8981\u5e79\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6578\u64da",
+            "format": "csv",
+            "provider-id": "hk-td",
+            "resource-name-en": "Road Network Segments ",
+            "resource-name-sc": "\u9053\u8def\u7f51\u7edc\u8def\u6bb5 ",
+            "resource-name-tc": "\u9053\u8def\u7db2\u7d61\u8def\u6bb5 ",
+            "schema": "",
+            "total-size": 0,
+            "url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/speed_segments_info.csv",
+            "version-count": 0
+        },
+        {
+            "category-id": "transport",
+            "data_dictionary": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+            "dataset-id": "hk-td-sm_4-traffic-data-strategic-major-roads",
+            "dataset-name-en": "Traffic Data of Strategic / Major Roads",
+            "dataset-name-sc": "\u4e3b\u8981\u5e72\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6570\u636e",
+            "dataset-name-tc": "\u4e3b\u8981\u5e79\u9053\u53ca\u9053\u8def\u4ea4\u901a\u6578\u64da",
+            "format": "csv",
+            "provider-id": "hk-td",
+            "resource-name-en": "Locations of Traffic Detectors ",
+            "resource-name-sc": "\u4ea4\u901a\u63a2\u6d4b\u5668\u4f4d\u7f6e ",
+            "resource-name-tc": "\u4ea4\u901a\u63a2\u6e2c\u5668\u4f4d\u7f6e ",
+            "schema": "",
+            "total-size": 0,
+            "url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/traffic_speed_volume_occ_info.csv",
+            "version-count": 0
+        }
+    ]
+}

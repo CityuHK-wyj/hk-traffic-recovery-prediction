@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/road-network-v2/CENTERLINE.gml",
+  "retrieved_at": "2026-10-27T08:18:13.720420+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/road-network-v2/CENTERLINE.gml",
+  "headers": {
+    "content-type": "text/gml",
+    "content-length": "484207756",
+    "last-modified": "Fri, 09 Oct 2026 04:20:50 GMT",
+    "date": "Tue, 27 Oct 2026 08:18:16 GMT",
+    "etag": "\"c6da234e6ba4bd579856ecf648ce12d0\""
+  },
+  "bytes": 484207756,
+  "sha256": "4fad0303e65c759ac7abe8eea3920b3ffcfcd5149c978fa9540bf032933a32c2",
+  "body": "network_centerline.gml",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

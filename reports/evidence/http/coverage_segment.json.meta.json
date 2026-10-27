@@ -1,0 +1,16 @@
+{
+  "requested_url": "https://app.data.gov.hk/v1/historical-archive/list-file-versions?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FirnAvgSpeed-all.xml&start=20100101&end=20261021",
+  "retrieved_at": "2026-10-27T08:30:05.998323+00:00",
+  "attempt": 1,
+  "status": 200,
+  "final_url": "https://app.data.gov.hk/v1/historical-archive/list-file-versions?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FirnAvgSpeed-all.xml&start=20100101&end=20261021",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:30:11 GMT",
+    "content-type": "application/json",
+    "content-length": "275161"
+  },
+  "bytes": 275161,
+  "sha256": "7b12c2f291520dbe7e3936b07372e50caa642427668335cf699bc6648ec97dab",
+  "body": "coverage_segment.json",
+  "completed_at": "2026-10-27T08:30:12.625913+00:00"
+}

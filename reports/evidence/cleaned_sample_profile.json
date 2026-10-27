@@ -1,0 +1,828 @@
+{
+  "scope": "Only the supplied exported sample; not all audited rows. See sample provenance for selection.",
+  "rows": 12503,
+  "speed_kmh_quantiles": {
+    "0.0": 0.0,
+    "0.25": 68.0,
+    "0.5": 76.0,
+    "0.75": 89.0,
+    "0.95": 112.0,
+    "1.0": 235.0
+  },
+  "zero_valid_volume_rows": 3177,
+  "positive_speed_with_zero_valid_volume_rows": 3172,
+  "unique_detector_direction_pairs": 779,
+  "direction_disagreement_count": 135,
+  "direction_disagreements_with_current_metadata": [
+    {
+      "detector_id": "AID01107",
+      "direction": "North East",
+      "AID_ID_Number": "AID01107",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "AID01109",
+      "direction": "North East",
+      "AID_ID_Number": "AID01109",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID01111",
+      "direction": "North East",
+      "AID_ID_Number": "AID01111",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID01112",
+      "direction": "North East",
+      "AID_ID_Number": "AID01112",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID01114",
+      "direction": "North East",
+      "AID_ID_Number": "AID01114",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID01124",
+      "direction": "North East",
+      "AID_ID_Number": "AID01124",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "AID01129",
+      "direction": "North East",
+      "AID_ID_Number": "AID01129",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID01130",
+      "direction": "North East",
+      "AID_ID_Number": "AID01130",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID01210",
+      "direction": "South East",
+      "AID_ID_Number": "AID01210",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID01213",
+      "direction": "South West",
+      "AID_ID_Number": "AID01213",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "AID01215",
+      "direction": "South West",
+      "AID_ID_Number": "AID01215",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID01217",
+      "direction": "South West",
+      "AID_ID_Number": "AID01217",
+      "Direction": "North West"
+    },
+    {
+      "detector_id": "AID02105",
+      "direction": "South West",
+      "AID_ID_Number": "AID02105",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID02106",
+      "direction": "South West",
+      "AID_ID_Number": "AID02106",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID02111",
+      "direction": "North East",
+      "AID_ID_Number": "AID02111",
+      "Direction": "North West"
+    },
+    {
+      "detector_id": "AID02119",
+      "direction": "North East",
+      "AID_ID_Number": "AID02119",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID02127",
+      "direction": "North East",
+      "AID_ID_Number": "AID02127",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID02212",
+      "direction": "South East",
+      "AID_ID_Number": "AID02212",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID02214",
+      "direction": "North East",
+      "AID_ID_Number": "AID02214",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID03106",
+      "direction": "North East",
+      "AID_ID_Number": "AID03106",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID03107",
+      "direction": "North West",
+      "AID_ID_Number": "AID03107",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID03108",
+      "direction": "North West",
+      "AID_ID_Number": "AID03108",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID03109",
+      "direction": "North West",
+      "AID_ID_Number": "AID03109",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID03116",
+      "direction": "North West",
+      "AID_ID_Number": "AID03116",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID03208",
+      "direction": "South East",
+      "AID_ID_Number": "AID03208",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID03210",
+      "direction": "South East",
+      "AID_ID_Number": "AID03210",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID03211",
+      "direction": "South West",
+      "AID_ID_Number": "AID03211",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID04105",
+      "direction": "North West",
+      "AID_ID_Number": "AID04105",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04106",
+      "direction": "North East",
+      "AID_ID_Number": "AID04106",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04107",
+      "direction": "North East",
+      "AID_ID_Number": "AID04107",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04111",
+      "direction": "South East",
+      "AID_ID_Number": "AID04111",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04112",
+      "direction": "North East",
+      "AID_ID_Number": "AID04112",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04113",
+      "direction": "North East",
+      "AID_ID_Number": "AID04113",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04114",
+      "direction": "South East",
+      "AID_ID_Number": "AID04114",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID04119",
+      "direction": "South West",
+      "AID_ID_Number": "AID04119",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID04120",
+      "direction": "South East",
+      "AID_ID_Number": "AID04120",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID04201",
+      "direction": "North East",
+      "AID_ID_Number": "AID04201",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID04202",
+      "direction": "North East",
+      "AID_ID_Number": "AID04202",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID04203",
+      "direction": "North East",
+      "AID_ID_Number": "AID04203",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID04204",
+      "direction": "South West",
+      "AID_ID_Number": "AID04204",
+      "Direction": "North West"
+    },
+    {
+      "detector_id": "AID04207",
+      "direction": "South West",
+      "AID_ID_Number": "AID04207",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04209",
+      "direction": "North West",
+      "AID_ID_Number": "AID04209",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04213",
+      "direction": "North West",
+      "AID_ID_Number": "AID04213",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04218",
+      "direction": "North West",
+      "AID_ID_Number": "AID04218",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04221",
+      "direction": "South West",
+      "AID_ID_Number": "AID04221",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID04222",
+      "direction": "North West",
+      "AID_ID_Number": "AID04222",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05101",
+      "direction": "North West",
+      "AID_ID_Number": "AID05101",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05113",
+      "direction": "North West",
+      "AID_ID_Number": "AID05113",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID05121",
+      "direction": "South West",
+      "AID_ID_Number": "AID05121",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05123",
+      "direction": "North West",
+      "AID_ID_Number": "AID05123",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05124",
+      "direction": "North West",
+      "AID_ID_Number": "AID05124",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05125",
+      "direction": "North West",
+      "AID_ID_Number": "AID05125",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05126",
+      "direction": "North East",
+      "AID_ID_Number": "AID05126",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID05127",
+      "direction": "North East",
+      "AID_ID_Number": "AID05127",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID05135",
+      "direction": "South West",
+      "AID_ID_Number": "AID05135",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID05201",
+      "direction": "North East",
+      "AID_ID_Number": "AID05201",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID05206",
+      "direction": "South East",
+      "AID_ID_Number": "AID05206",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID05209",
+      "direction": "South West",
+      "AID_ID_Number": "AID05209",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID05211",
+      "direction": "South East",
+      "AID_ID_Number": "AID05211",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID05212",
+      "direction": "South East",
+      "AID_ID_Number": "AID05212",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID05213",
+      "direction": "South East",
+      "AID_ID_Number": "AID05213",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID05214",
+      "direction": "East",
+      "AID_ID_Number": "AID05214",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "AID05220",
+      "direction": "South East",
+      "AID_ID_Number": "AID05220",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID05223",
+      "direction": "South East",
+      "AID_ID_Number": "AID05223",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID07107",
+      "direction": "South West",
+      "AID_ID_Number": "AID07107",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID07110",
+      "direction": "North West",
+      "AID_ID_Number": "AID07110",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07121",
+      "direction": "North West",
+      "AID_ID_Number": "AID07121",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07123",
+      "direction": "South West",
+      "AID_ID_Number": "AID07123",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07127",
+      "direction": "South West",
+      "AID_ID_Number": "AID07127",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07129",
+      "direction": "South West",
+      "AID_ID_Number": "AID07129",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07130",
+      "direction": "South West",
+      "AID_ID_Number": "AID07130",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07132",
+      "direction": "South West",
+      "AID_ID_Number": "AID07132",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07134",
+      "direction": "South West",
+      "AID_ID_Number": "AID07134",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID07201",
+      "direction": "North East",
+      "AID_ID_Number": "AID07201",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID07204",
+      "direction": "South West",
+      "AID_ID_Number": "AID07204",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID07206",
+      "direction": "North East",
+      "AID_ID_Number": "AID07206",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID07210",
+      "direction": "North East",
+      "AID_ID_Number": "AID07210",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID07211",
+      "direction": "North East",
+      "AID_ID_Number": "AID07211",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "AID07213",
+      "direction": "South East",
+      "AID_ID_Number": "AID07213",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID07224",
+      "direction": "South East",
+      "AID_ID_Number": "AID07224",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID07225",
+      "direction": "South East",
+      "AID_ID_Number": "AID07225",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID07232",
+      "direction": "South East",
+      "AID_ID_Number": "AID07232",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08101",
+      "direction": "South West",
+      "AID_ID_Number": "AID08101",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08102",
+      "direction": "South West",
+      "AID_ID_Number": "AID08102",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08104",
+      "direction": "South West",
+      "AID_ID_Number": "AID08104",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08110",
+      "direction": "South West",
+      "AID_ID_Number": "AID08110",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08111",
+      "direction": "South West",
+      "AID_ID_Number": "AID08111",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08112",
+      "direction": "South West",
+      "AID_ID_Number": "AID08112",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08113",
+      "direction": "South West",
+      "AID_ID_Number": "AID08113",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08114",
+      "direction": "South West",
+      "AID_ID_Number": "AID08114",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08115",
+      "direction": "South West",
+      "AID_ID_Number": "AID08115",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08116",
+      "direction": "South West",
+      "AID_ID_Number": "AID08116",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08117",
+      "direction": "South West",
+      "AID_ID_Number": "AID08117",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08120",
+      "direction": "South West",
+      "AID_ID_Number": "AID08120",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID08204",
+      "direction": "North East",
+      "AID_ID_Number": "AID08204",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08208",
+      "direction": "North East",
+      "AID_ID_Number": "AID08208",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08209",
+      "direction": "North East",
+      "AID_ID_Number": "AID08209",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08210",
+      "direction": "North East",
+      "AID_ID_Number": "AID08210",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08211",
+      "direction": "North East",
+      "AID_ID_Number": "AID08211",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08220",
+      "direction": "North East",
+      "AID_ID_Number": "AID08220",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID08223",
+      "direction": "North East",
+      "AID_ID_Number": "AID08223",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09101",
+      "direction": "North East",
+      "AID_ID_Number": "AID09101",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09105",
+      "direction": "East",
+      "AID_ID_Number": "AID09105",
+      "Direction": "North East"
+    },
+    {
+      "detector_id": "AID09110",
+      "direction": "North East",
+      "AID_ID_Number": "AID09110",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09111",
+      "direction": "South East",
+      "AID_ID_Number": "AID09111",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09123",
+      "direction": "North East",
+      "AID_ID_Number": "AID09123",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID09151",
+      "direction": "North East",
+      "AID_ID_Number": "AID09151",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09153",
+      "direction": "South East",
+      "AID_ID_Number": "AID09153",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09154",
+      "direction": "South East",
+      "AID_ID_Number": "AID09154",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09156",
+      "direction": "South East",
+      "AID_ID_Number": "AID09156",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09157",
+      "direction": "South East",
+      "AID_ID_Number": "AID09157",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID09203",
+      "direction": "South West",
+      "AID_ID_Number": "AID09203",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09208",
+      "direction": "North West",
+      "AID_ID_Number": "AID09208",
+      "Direction": "South West"
+    },
+    {
+      "detector_id": "AID09251",
+      "direction": "North West",
+      "AID_ID_Number": "AID09251",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09252",
+      "direction": "North West",
+      "AID_ID_Number": "AID09252",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09254",
+      "direction": "North West",
+      "AID_ID_Number": "AID09254",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09255",
+      "direction": "North West",
+      "AID_ID_Number": "AID09255",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09256",
+      "direction": "North West",
+      "AID_ID_Number": "AID09256",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID09258",
+      "direction": "South West",
+      "AID_ID_Number": "AID09258",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID10102",
+      "direction": "South West",
+      "AID_ID_Number": "AID10102",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID10104",
+      "direction": "North West",
+      "AID_ID_Number": "AID10104",
+      "Direction": "West"
+    },
+    {
+      "detector_id": "AID10107",
+      "direction": "North East",
+      "AID_ID_Number": "AID10107",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID10109",
+      "direction": "North East",
+      "AID_ID_Number": "AID10109",
+      "Direction": "North"
+    },
+    {
+      "detector_id": "AID10120",
+      "direction": "North East",
+      "AID_ID_Number": "AID10120",
+      "Direction": "South West"
+    },
+    {
+      "detector_id": "AID10210",
+      "direction": "South West",
+      "AID_ID_Number": "AID10210",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "AID10213",
+      "direction": "South West",
+      "AID_ID_Number": "AID10213",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "AID10218",
+      "direction": "North East",
+      "AID_ID_Number": "AID10218",
+      "Direction": "East"
+    },
+    {
+      "detector_id": "TDS20004",
+      "direction": "South",
+      "AID_ID_Number": "TDS20004",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "TDS20006",
+      "direction": "South West",
+      "AID_ID_Number": "TDS20006",
+      "Direction": "South"
+    },
+    {
+      "detector_id": "TDS90082",
+      "direction": "East",
+      "AID_ID_Number": "TDS90082",
+      "Direction": "North East"
+    },
+    {
+      "detector_id": "TDSNCWBR10001",
+      "direction": "East",
+      "AID_ID_Number": "TDSNCWBR10001",
+      "Direction": "North East"
+    },
+    {
+      "detector_id": "TDSSPWR10002",
+      "direction": "South",
+      "AID_ID_Number": "TDSSPWR10002",
+      "Direction": "South East"
+    },
+    {
+      "detector_id": "TDSSPWR10003",
+      "direction": "East",
+      "AID_ID_Number": "TDSSPWR10003",
+      "Direction": "North East"
+    },
+    {
+      "detector_id": "TDSSPWR20003",
+      "direction": "West",
+      "AID_ID_Number": "TDSSPWR20003",
+      "Direction": "South West"
+    },
+    {
+      "detector_id": "TDSTTR20001",
+      "direction": "West",
+      "AID_ID_Number": "TDSTTR20001",
+      "Direction": "North West"
+    }
+  ]
+}

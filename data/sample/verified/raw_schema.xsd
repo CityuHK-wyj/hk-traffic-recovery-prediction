@@ -1,0 +1,94 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  <xs:element name="raw_speed_volume_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="date" type="xs:date">
+          <xs:annotation>
+            <xs:documentation>Date of the data</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+		<xs:element name="periods">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="period" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>		
+					<xs:element name="period_from" type="xs:time">
+					  <xs:annotation>
+						<xs:documentation>Timestamp of data period starts</xs:documentation>
+					  </xs:annotation>
+					</xs:element>
+					<xs:element name="period_to" type="xs:time">
+					  <xs:annotation>
+						<xs:documentation>Timestamp of data period ends</xs:documentation>
+					  </xs:annotation>
+					</xs:element>
+					<xs:element name="detectors">
+					  <xs:complexType>
+						<xs:sequence>
+						  <xs:element name="detector" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+							  <xs:sequence>
+								<xs:element name="detector_id" type="xs:string">
+								  <xs:annotation>
+									<xs:documentation>Reference ID for AID</xs:documentation>
+								  </xs:annotation>
+								</xs:element>
+								<xs:element name="direction" type="xs:string">
+								  <xs:annotation>
+									<xs:documentation>Direction of AID</xs:documentation>
+								  </xs:annotation>
+								</xs:element>
+								<xs:element name="lanes">
+								  <xs:complexType>
+									<xs:sequence>
+									  <xs:element name="lane" maxOccurs="unbounded" minOccurs="0">
+										<xs:complexType>
+										  <xs:sequence>
+											<xs:element name="lane_id" type="xs:string">
+											  <xs:annotation>
+												<xs:documentation>Reference ID for Lane of AID</xs:documentation>
+											  </xs:annotation>
+											</xs:element>
+											<xs:element name="speed" type="xs:integer">
+											  <xs:annotation>
+												<xs:documentation>Average speed of lane</xs:documentation>
+											  </xs:annotation>
+											</xs:element>
+											<xs:element name="occupancy" type="xs:integer">
+											  <xs:annotation>
+												<xs:documentation>Occupancy of lane</xs:documentation>
+											  </xs:annotation>
+											</xs:element>
+											<xs:element name="volume" type="xs:integer">
+											  <xs:annotation>
+												<xs:documentation>Traffic volume of lane</xs:documentation>
+											  </xs:annotation>
+											</xs:element>
+											<xs:element name="valid" type="xs:string">
+											  <xs:annotation>
+												<xs:documentation>Data Validity</xs:documentation>
+											  </xs:annotation>
+											</xs:element>
+										  </xs:sequence>
+										</xs:complexType>
+									  </xs:element>
+									</xs:sequence>
+								  </xs:complexType>
+								</xs:element>
+							  </xs:sequence>
+							</xs:complexType>
+						  </xs:element>
+						</xs:sequence>
+					  </xs:complexType>
+					</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+		  </xs:sequence>
+			</xs:complexType>
+		  </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

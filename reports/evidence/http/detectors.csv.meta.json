@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/traffic_speed_volume_occ_info.csv",
+  "retrieved_at": "2026-10-27T08:16:35.894960+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/info/traffic_speed_volume_occ_info.csv",
+  "headers": {
+    "content-type": "text/csv",
+    "content-length": "171744",
+    "date": "Tue, 27 Oct 2026 08:16:37 GMT",
+    "last-modified": "Thu, 30 Apr 2026 10:14:59 GMT",
+    "etag": "\"eb659df2d6598df4041d62197af17647\""
+  },
+  "bytes": 171744,
+  "sha256": "f30818ec94984c024f0188e2e45139ac684c4636aae7906561e227f01407423d",
+  "body": "detectors.csv",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

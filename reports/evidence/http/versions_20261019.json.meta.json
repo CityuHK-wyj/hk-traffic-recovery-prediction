@@ -1,0 +1,16 @@
+{
+  "requested_url": "https://app.data.gov.hk/v1/historical-archive/list-file-versions?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FrawSpeedVol-all.xml&start=20261019&end=20261019",
+  "retrieved_at": "2026-10-27T08:30:12.814085+00:00",
+  "attempt": 1,
+  "status": 200,
+  "final_url": "https://app.data.gov.hk/v1/historical-archive/list-file-versions?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FrawSpeedVol-all.xml&start=20261019&end=20261019",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:30:14 GMT",
+    "content-type": "application/json",
+    "content-length": "27266"
+  },
+  "bytes": 27266,
+  "sha256": "b221ee7d0eb9f07737bbe295d5c76569c4f6f703cdfdc7e46e823ada19274849",
+  "body": "versions_20261019.json",
+  "completed_at": "2026-10-27T08:30:14.415640+00:00"
+}

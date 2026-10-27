@@ -1,0 +1,15 @@
+{
+  "requested_url": "https://app.data.gov.hk/v1/historical-archive/list-files?start=20261019&end=20261021&provider=hk-td&search=Traffic+Data+of+Strategic&max=100",
+  "retrieved_at": "2026-10-27T08:16:45.962206+00:00",
+  "status": 200,
+  "final_url": "https://app.data.gov.hk/v1/historical-archive/list-files?start=20261019&end=20261021&provider=hk-td&search=Traffic+Data+of+Strategic&max=100",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:16:51 GMT",
+    "content-type": "application/json",
+    "content-length": "4588"
+  },
+  "bytes": 4588,
+  "sha256": "b944dfcb4c91ad136b132424764e1f73d16c1aea5941e95d6d315acee13658f2",
+  "body": "archive_files.json",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

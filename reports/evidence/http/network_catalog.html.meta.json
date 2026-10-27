@@ -1,0 +1,15 @@
+{
+  "requested_url": "https://data.gov.hk/en-data/dataset/hk-td-tis_15-road-network-v2",
+  "retrieved_at": "2026-10-27T08:15:52.135157+00:00",
+  "status": 200,
+  "final_url": "https://data.gov.hk/en-data/dataset/hk-td-tis_15-road-network-v2",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:15:54 GMT",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "204203"
+  },
+  "bytes": 204203,
+  "sha256": "0943a7d3ce4683a1691980a3b0a41412730e71dab3ee5da207a2bf5a0c959c83",
+  "body": "network_catalog.html",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

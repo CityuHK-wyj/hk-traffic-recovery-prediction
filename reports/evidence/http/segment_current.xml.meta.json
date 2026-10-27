@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://resource.data.one.gov.hk/td/traffic-detectors/irnAvgSpeed-all.xml",
+  "retrieved_at": "2026-10-27T08:16:34.525430+00:00",
+  "status": 200,
+  "final_url": "https://resource.data.one.gov.hk/td/traffic-detectors/irnAvgSpeed-all.xml",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:16:36 GMT",
+    "content-type": "text/xml",
+    "content-length": "381928",
+    "last-modified": "Tue, 27 Oct 2026 08:14:33 GMT",
+    "etag": "\"5d3e8-65ece09536c40\""
+  },
+  "bytes": 381928,
+  "sha256": "a9edd20afead12ad07995b1b3eb49f5a1e247152748cb015ad015bfd402d7b5e",
+  "body": "segment_current.xml",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

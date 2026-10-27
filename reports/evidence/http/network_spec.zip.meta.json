@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/road-network-v2/dataspec/rdnet_dataspec.zip",
+  "retrieved_at": "2026-10-27T08:16:42.702814+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/road-network-v2/dataspec/rdnet_dataspec.zip",
+  "headers": {
+    "content-type": "application/zip",
+    "content-length": "1278089",
+    "last-modified": "Wed, 26 Mar 2025 08:56:33 GMT",
+    "date": "Tue, 27 Oct 2026 08:16:45 GMT",
+    "etag": "\"ee08254070d726615a48577f6e0bb72a\""
+  },
+  "bytes": 1278089,
+  "sha256": "17e91e8e13d41b5d1e6c210fdde485e7deadfa62a08523f831ffda181ca39a44",
+  "body": "network_spec.zip",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}
