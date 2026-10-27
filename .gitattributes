@@ -1,0 +1,3 @@
+# Preserve verified government sample files byte-for-byte.
+# Git must not convert LF/CRLF during checkout.
+data/sample/verified/** -text
