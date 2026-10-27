@@ -1,0 +1,18 @@
+{
+  "requested_url": "https://app.data.gov.hk/v1/historical-archive/get-file?url=https%3A%2F%2Fresource.data.one.gov.hk%2Ftd%2Ftraffic-detectors%2FrawSpeedVol-all.xml&time=20261019",
+  "retrieved_at": "2026-10-27T08:18:13.719904+00:00",
+  "status": 200,
+  "final_url": "https://historical-resource-archive-daily.oss-cn-hongkong.aliyuncs.com/7c383a978e42cfa2953886913b189fbb1e4bad34bf5d9b92598cc4e1aea8a25d/data/2026/10/7c383a978e42cfa2953886913b189fbb1e4bad34bf5d9b92598cc4e1aea8a25d-20261019.zip",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:18:17 GMT",
+    "content-type": "application/zip",
+    "content-length": "35963886",
+    "etag": "\"3927137326093BC2F90B458672F8CD14-5\"",
+    "last-modified": "Mon, 19 Oct 2026 16:20:33 GMT",
+    "content-disposition": "attachment"
+  },
+  "bytes": 35963886,
+  "sha256": "c5f5162c2ead42efb388f5153648c2adaf3974e3a720d6ff3ca0b777e70ab6ca",
+  "body": "raw_20261019.zip",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

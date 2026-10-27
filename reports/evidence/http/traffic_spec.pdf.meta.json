@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+  "retrieved_at": "2026-10-27T08:16:39.217951+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/traffic-data-strategic-major-roads/dataspec/dataspec-traffic-data-strategic-major-roads.pdf",
+  "headers": {
+    "content-type": "application/pdf",
+    "content-length": "444782",
+    "date": "Tue, 27 Oct 2026 08:16:41 GMT",
+    "last-modified": "Tue, 13 Dec 2022 03:38:26 GMT",
+    "etag": "\"beeb28224346cb1c3118317e63f7f0b8\""
+  },
+  "bytes": 444782,
+  "sha256": "1eea9bd0fe6aea330f785a02406a74df42a21762ba50859e2d8e0bbd819984f8",
+  "body": "traffic_spec.pdf",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

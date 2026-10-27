@@ -218,3 +218,24 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Research data: keep only deliberately curated small samples in Git.
+/data/*
+!/data/sample/
+/data/sample/*
+!/data/sample/verified/
+/data/sample/verified/*.zip
+/data/sample/verified/*.gml
+/data/sample/verified/*.pdf
+/data/sample/verified/cleaned_sample.csv
+# The bounded cleaned sample is stored compressed; large derivatives stay local.
+/data/raw/
+/data/processed/
+/reports/local/
+/figures/generated/
+*.joblib
+*.pkl
+*.pt
+*.onnx
+*.pem
+*.key

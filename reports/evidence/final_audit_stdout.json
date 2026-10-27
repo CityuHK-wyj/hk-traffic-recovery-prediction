@@ -1,0 +1,6 @@
+{
+  "status": "completed",
+  "report": "reports/data_audit.json",
+  "historical_files_parsed": 3121,
+  "errors": []
+}

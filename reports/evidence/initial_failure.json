@@ -1,0 +1,17 @@
+{
+  "status": "partial_or_failed",
+  "report": "reports/data_audit.json",
+  "historical_files_parsed": 1567,
+  "errors": [
+    {
+      "stage": "sample 20261020",
+      "type": "SchemaError",
+      "error": "Conflicting duplicate observation keys; quarantine rather than choose a value"
+    },
+    {
+      "stage": "sample 20261021",
+      "type": "SchemaError",
+      "error": "Conflicting duplicate observation keys; quarantine rather than choose a value"
+    }
+  ]
+}

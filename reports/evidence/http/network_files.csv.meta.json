@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://static.data.gov.hk/td/road-network-v2/dataspec/file_list.csv",
+  "retrieved_at": "2026-10-27T08:16:41.430937+00:00",
+  "status": 200,
+  "final_url": "https://static.data.gov.hk/td/road-network-v2/dataspec/file_list.csv",
+  "headers": {
+    "content-type": "text/csv",
+    "content-length": "7046",
+    "date": "Tue, 27 Oct 2026 08:16:43 GMT",
+    "last-modified": "Tue, 10 Jun 2025 01:26:37 GMT",
+    "etag": "\"a9134caf8444412b759e10e67aff18b9\""
+  },
+  "bytes": 7046,
+  "sha256": "fa396b2f9a08a7838e728c3398ff86b6afdfcf23436a408480235d04dbd3d66b",
+  "body": "network_files.csv",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}

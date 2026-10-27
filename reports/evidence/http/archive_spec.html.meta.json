@@ -1,0 +1,17 @@
+{
+  "requested_url": "https://data.gov.hk/en/help/api-spec",
+  "retrieved_at": "2026-10-27T08:15:50.278317+00:00",
+  "status": 200,
+  "final_url": "https://data.gov.hk/en/help/api-spec",
+  "headers": {
+    "date": "Tue, 27 Oct 2026 08:15:52 GMT",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "85340",
+    "last-modified": "Tue, 29 Sep 2026 01:51:31 GMT",
+    "etag": "\"6abb19a3-14d5c\""
+  },
+  "bytes": 85340,
+  "sha256": "caa2c32d655390b8287addb1cec9b4e51859fcfd64cd164ca554d8a8769e88d9",
+  "body": "archive_spec.html",
+  "note": "Initial direct HTTP discovery; migrated byte-for-byte, with nonessential cookie headers omitted."
+}
