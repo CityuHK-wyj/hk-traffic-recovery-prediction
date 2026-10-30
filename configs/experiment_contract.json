@@ -1,0 +1,52 @@
+{
+  "version": "lane-event-experiment-contract-v1",
+  "scientific_approval": "pending_member_1_4_review",
+  "unit": ["detector_id", "direction", "lane_id"],
+  "event_key": "event_id",
+  "prediction_time": "prediction_time",
+  "horizons_minutes": [15, 30, 60],
+  "split_boundaries": {
+    "validation_start": "2026-10-17T00:00:00+08:00",
+    "test_start": "2026-10-19T00:00:00+08:00",
+    "test_end": "2026-10-21T00:00:00+08:00"
+  },
+  "feature_groups": {
+    "local": ["speed_kmh", "speed_ratio", "baseline_kmh", "valid_slots", "onset_observed_minutes"],
+    "calendar": ["hour_sin", "hour_cos", "dow_sin", "dow_cos", "is_weekend", "is_public_holiday", "is_day_before_holiday", "is_day_after_holiday", "holiday_count", "calendar_source_observed"],
+    "weather": ["temperature_c", "relative_humidity_pct", "rainfall_mm", "wind_speed_kmh", "weather_age_minutes", "weather_missing"],
+    "incident": ["incident_records_observed", "active_incident_count", "has_active_incident", "active_road_closure_count", "active_road_closure_status_missing", "nearest_incident_distance_m", "oldest_incident_age_minutes"],
+    "major_event": ["major_event_records_observed", "active_major_event_count", "upcoming_major_event_count", "recent_major_event_count", "nearest_major_event_distance_m", "minutes_to_next_major_event", "minutes_since_latest_major_event"],
+    "spatial": ["upstream_mean_speed_kmh", "upstream_congestion_fraction", "upstream_observed_detectors", "upstream_eligible_detectors", "upstream_reference_detectors", "upstream_coverage", "upstream_road_degree", "downstream_mean_speed_kmh", "downstream_congestion_fraction", "downstream_observed_detectors", "downstream_eligible_detectors", "downstream_reference_detectors", "downstream_coverage", "downstream_road_degree"]
+  },
+  "availability_columns": [
+    "feature_max_available_at",
+    "calendar_max_source_available_at",
+    "weather_available_at",
+    "incident_max_available_at",
+    "major_event_max_available_at",
+    "upstream_max_available_at",
+    "downstream_max_available_at"
+  ],
+  "availability_requirements": {
+    "feature_max_available_at": ["speed_kmh", "speed_ratio", "baseline_kmh", "valid_slots", "onset_observed_minutes"],
+    "calendar_max_source_available_at": ["is_public_holiday", "is_day_before_holiday", "is_day_after_holiday", "holiday_count"],
+    "weather_available_at": ["temperature_c", "relative_humidity_pct", "rainfall_mm", "wind_speed_kmh", "weather_age_minutes"],
+    "incident_max_available_at": ["active_incident_count", "has_active_incident", "active_road_closure_count", "nearest_incident_distance_m", "oldest_incident_age_minutes"],
+    "major_event_max_available_at": ["active_major_event_count", "upcoming_major_event_count", "recent_major_event_count", "nearest_major_event_distance_m", "minutes_to_next_major_event", "minutes_since_latest_major_event"],
+    "upstream_max_available_at": ["upstream_mean_speed_kmh", "upstream_congestion_fraction", "upstream_observed_detectors", "upstream_eligible_detectors", "upstream_reference_detectors", "upstream_coverage", "upstream_road_degree"],
+    "downstream_max_available_at": ["downstream_mean_speed_kmh", "downstream_congestion_fraction", "downstream_observed_detectors", "downstream_eligible_detectors", "downstream_reference_detectors", "downstream_coverage", "downstream_road_degree"]
+  },
+  "outcome_only": [
+    "recovery_time",
+    "recovery_available_at",
+    "followup_end",
+    "termination_reason",
+    "episode_separated_at",
+    "label_15m",
+    "label_30m",
+    "label_60m",
+    "reason_15m",
+    "reason_30m",
+    "reason_60m"
+  ]
+}

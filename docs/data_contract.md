@@ -251,20 +251,40 @@ The medium real-event output contains **only null spatial measurements** until
 independent mapping/topology review and historical-version approval. A candidate
 or source-supported connection is not a `human_verified` connection.
 
-## 5. External contextual features — PROVISIONAL, sources unverified
+## 5. External contextual features — IMPLEMENTED ADAPTERS, scientific use pending
 
-Proposed key: `(segment_id, prediction_time, context_version)`; source-specific
+The prediction-time adapters and their synthetic behavior tests are implemented;
+official source audit decisions, staging schemas and acceptance gates are recorded
+in [external_features.md](external_features.md) and
+[external_data_source_audit.md](external_data_source_audit.md). No real external
+feature cohort has been produced, and conditional sources remain optional.
+
+Key: `(event_id, prediction_time, context_version)`; source-specific
 staging keys include station/incident/holiday IDs and observation/effective times.
 Fields: weather variables with declared units, holiday/category, incident/closure
 indicators and distance; each carries `observed_at`, `issued_at/available_at`,
 validity interval and source URL/hash. Optional features may be entirely absent.
+Unknown active-incident closure state keeps `active_road_closure_count` null and
+sets `active_road_closure_status_missing`; it is never converted to zero.
 
 Join by documented spatial assignment and a **backward as-of availability join**,
 with maximum age/tolerance and explicit missingness. No nearest future weather,
 retrospectively updated incident end time or post-event parking counts as features.
 Known-in-advance calendar data needs an official version, not invented holidays.
 
-## 6. Final ML-ready dataset — PROVISIONAL
+## 6. Final ML-ready dataset — IMPLEMENTED BUILDER, approval pending
+
+`configs/experiment_contract.json` and `traffic_recovery.models.contract` implement
+the event key, nullable-label checks, temporal boundary checks, feature allowlist,
+availability watermarks and cohort/config fingerprinting. See
+[experiment_contract.md](experiment_contract.md). The underlying scientific event
+and split definitions remain pending Member 1/4 review.
+Each feature family activates its required watermark column; protected features
+without their availability evidence fail validation rather than passing silently.
+
+`traffic_recovery.models.dataset` implements exact one-to-one event/context/spatial
+merges, allowlist pruning and SHA-256 manifests. Its interface and reproduction
+command are documented in [model_dataset_and_benchmarks.md](model_dataset_and_benchmarks.md).
 
 Key `(dataset_version, event_id, prediction_time)`; one row per approved unit-time.
 Required: unit ID/direction, source watermark, feature schema version, nullable
@@ -282,7 +302,7 @@ feature selection and free-flow reference only on permitted training observation
 Local-only/spatial ablations must use identical eligible rows, splits and tuning
 budgets. Document detector/road reuse and any spatial generalisation claim separately.
 
-## 7. Experiment metrics — PROVISIONAL, no results yet
+## 7. Experiment metrics — BENCHMARK PIPELINE IMPLEMENTED, no real results yet
 
 Proposed long-form key `(run_id, split, horizon_min, feature_set, model, metric_name)`.
 Fields: `metric_value` nullable float; `n_rows`, `n_events`, `n_positive`, `n_censored`
@@ -292,4 +312,12 @@ Metric names may include precision/recall/F1, ROC-AUC, PR-AUC and calibration; d
 from imbalance and research protocol, not assumed results. Undefined single-class
 metrics are null with a reason, never zero. Proposed intervals use event-aware
 resampling and a documented method. Report results per horizon and paired spatial
-ablation, including coverage and exclusions. No metric is populated by this milestone.
+ablation, including coverage and exclusions. No real-cohort metric is populated by
+this milestone.
+
+Stage 4 implements majority-class, training-prevalence and predeclared
+`speed_ratio` rule predictions plus long-form classification metrics. Undefined
+single-class metrics are null with a reason; non-probability rule scores do not
+receive Brier or log-loss values. Configuration and commands are documented in
+[model_dataset_and_benchmarks.md](model_dataset_and_benchmarks.md). No synthetic
+test metric is a research result.

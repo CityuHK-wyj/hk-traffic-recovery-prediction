@@ -1,0 +1,21 @@
+{
+  "version": "supervised-models-v1",
+  "scientific_approval": "pending_real_cohort_and_team_review",
+  "seed": 42,
+  "selection_metric": "validation_log_loss",
+  "decision_threshold": 0.5,
+  "refit_after_selection": false,
+  "default_feature_groups": ["local"],
+  "logistic_regression": {
+    "solver": "liblinear",
+    "max_iter": 2000,
+    "C": [0.1, 1.0, 10.0],
+    "class_weight": [null, "balanced"]
+  },
+  "decision_tree": {
+    "criterion": "gini",
+    "max_depth": [2, 4, 6, null],
+    "min_samples_leaf": [1, 5, 10],
+    "class_weight": [null, "balanced"]
+  }
+}

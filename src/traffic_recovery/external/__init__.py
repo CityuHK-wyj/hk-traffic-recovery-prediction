@@ -1,4 +1,9 @@
-"""Member 3: verified external context and prediction-time-safe integration.
+"""Verified external context and prediction-time-safe integration.
 
-No weather, holiday or incident source is assumed available yet.
+Adapters accept source-preserving tables with explicit availability timestamps;
+they do not claim that an optional source has complete historical coverage.
 """
+
+from .build import ContextRules, build_context_features
+
+__all__ = ["ContextRules", "build_context_features"]

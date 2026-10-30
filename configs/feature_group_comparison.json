@@ -1,0 +1,25 @@
+{
+  "version": "feature-group-comparison-v1",
+  "scientific_approval": "pending_real_cohort_and_team_review",
+  "models": ["logistic", "tree"],
+  "reference_feature_set": "local",
+  "feature_sets": [
+    {"name": "local", "groups": ["local"]},
+    {"name": "local+calendar", "groups": ["local", "calendar"]},
+    {"name": "local+weather", "groups": ["local", "weather"]},
+    {"name": "local+incident", "groups": ["local", "incident"]},
+    {"name": "local+major_event", "groups": ["local", "major_event"]},
+    {"name": "local+spatial", "groups": ["local", "spatial"]},
+    {"name": "local+all_context", "groups": ["local", "calendar", "weather", "incident", "major_event"]},
+    {"name": "local+all", "groups": ["local", "calendar", "weather", "incident", "major_event", "spatial"]}
+  ],
+  "comparison_split": "test",
+  "metrics": {
+    "balanced_accuracy": "higher",
+    "f1": "higher",
+    "roc_auc": "higher",
+    "pr_auc": "higher",
+    "brier_score": "lower",
+    "log_loss": "lower"
+  }
+}

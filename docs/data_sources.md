@@ -121,10 +121,16 @@ Member 2's next task. GeoPandas and NetworkX are intentionally not installed yet
 
 ## Optional contextual data
 
-Weather, holidays, incidents/closures, parking and attractions have **not** been
-verified in this milestone. They remain optional research candidates, not dependencies
-or claimed available features. Member 3 must preserve equivalent evidence and
-prediction-time availability semantics before they enter the data contract.
+Calendar, weather, incident/roadworks and major-event candidates were audited on
+2026-10-28 against official first-party sources. See
+[`external_data_source_audit.md`](external_data_source_audit.md) for citations,
+measured archive inventories, licence conditions and admission gates. Calendar and
+archive-backed temperature/wind are feasible for the checked pilot; Special Traffic
+News is feasible with limited/selective semantics. Rainfall, roadworks and curated
+major-event calendars remain conditional. Implemented adapters and staging schemas
+are documented in [`external_features.md`](external_features.md); no source is a
+required or claimed-complete feature until authentic bytes, manifests and target-
+cohort coverage pass review.
 
 ## Source use and fallback
 

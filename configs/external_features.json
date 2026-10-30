@@ -1,0 +1,27 @@
+{
+  "version": "external-context-v1",
+  "scientific_approval": "pending_source_fixture_and_team_review",
+  "availability_policy": "source_available_at_lte_prediction_time",
+  "calendar": {
+    "pilot_decision": "go",
+    "timezone": "Asia/Hong_Kong",
+    "holiday_concept": "Hong Kong general holidays from the official 1823 calendar"
+  },
+  "weather": {
+    "pilot_decision": "temperature_wind_archive_go_rainfall_conditional",
+    "max_age_minutes": 60,
+    "join": "backward_by_station_and_available_at"
+  },
+  "incident": {
+    "pilot_decision": "special_traffic_news_limited_go_roadworks_conditional",
+    "max_distance_m": null,
+    "join": "latest_available_snapshot_by_incident_then_active_interval"
+  },
+  "major_event": {
+    "pilot_decision": "conditional_curated_sources_only",
+    "max_distance_m": null,
+    "before_minutes": 120,
+    "after_minutes": 60,
+    "join": "published_edition_then_effective_interval"
+  }
+}
