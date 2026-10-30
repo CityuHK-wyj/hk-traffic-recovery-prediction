@@ -284,7 +284,7 @@ def train_supervised(
 
             importance = permutation_importance(
                 best, x_validation, y_validation, n_repeats=10,
-                random_state=rules.seed, scoring="neg_log_loss",
+                random_state=rules.seed, scoring="accuracy",
             )
             values = importance.importances_mean
             importance_type = "permutation_importance"
