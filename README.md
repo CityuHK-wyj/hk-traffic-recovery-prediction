@@ -54,8 +54,8 @@ threshold sensitivity, real-event curves and a small source-topology matching pi
 The full pipeline was interrupted before completion; these are implemented capabilities,
 not verified full-pilot results. The [memory investigation](docs/pilot_memory_verification.md)
 records a successful limited real-data coverage benchmark and safe resumption.
-No ML training or dashboard. Definitions and [contract v0.2](docs/data_contract.md)
-remain pending team review.
+No approved real-cohort ML result or dashboard result exists. Definitions and
+[contract v0.2](docs/data_contract.md) remain pending team review.
 
 Large raw and derived data stay ignored in `data/local/pilot/`. The intended event
 output is `data/local/pilot/derived/events.parquet`, which has **not yet been produced**.
@@ -116,8 +116,9 @@ Commands are intentionally single-line and shell-independent. `tzdata` is locked
 for systems without an OS timezone database. Python uses `pathlib.Path`, UTF-8
 and aware Asia/Hong_Kong times. Milestone 2 adds PyArrow (Parquet), Matplotlib
 (offline figures) and Shapely (metre geometry/topology) to pandas/tzdata; pytest
-is a development dependency. No GeoPandas, NetworkX, ML framework, API keys,
-database or Docker is required.
+is a development dependency. Stages 5–6 use scikit-learn for leakage-safe
+logistic-regression and decision-tree experiments. No GeoPandas, NetworkX, API
+keys, database or Docker is required.
 
 ## Reproduce a small live audit first
 
@@ -182,8 +183,8 @@ The profile describes only the supplied sample, not the full audited period.
 src/traffic_recovery/
   data/        Member 1: acquisition, coverage, provisional events/labels
   network/     Member 2: source topology/matching pilot; certified features pending
-  external/    Member 3: reserved for verified context features
-  models/      Member 4: reserved for baselines/evaluation/ablation
+  external/    Prediction-time-safe context adapters; real-source handoff pending
+  models/      Contract, dataset, baselines, supervised models and ablation runner
 tests/         Offline tests; labeled synthetic fixtures + real samples
 configs/       Configuration/range policy; no finalized event thresholds
 scripts/       Archive-boundary and exported-sample inspection CLIs
@@ -200,6 +201,8 @@ data/local/           Ignored large evidence stores
   and provisional labels; recovery **within** versus **at** a horizon.
 - [Official sources](docs/data_sources.md) and [feasibility findings](docs/data_audit.md).
 - [Actual verification outcomes](docs/verification.md).
+- [External/modeling progress report](docs/external_modeling_progress_report.md):
+  implemented files, reproduction steps, validation status and remaining gates.
 
 Use feature branches and reviewed PRs. Coordinate shared interfaces; test before
 requesting merge. Never commit secrets, large raw/processed datasets or models.

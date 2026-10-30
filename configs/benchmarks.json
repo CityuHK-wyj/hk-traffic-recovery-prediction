@@ -1,0 +1,11 @@
+{
+  "version": "recovery-benchmarks-v1",
+  "scientific_approval": "pending_team_review",
+  "decision_threshold": 0.5,
+  "speed_ratio_rule": {
+    "positive_at_or_above": 0.4,
+    "rationale": "Predeclared severity rule for software comparison only; not tuned on validation or test outcomes"
+  },
+  "models": ["majority_class", "train_prevalence", "speed_ratio_rule"],
+  "metrics": ["accuracy", "balanced_accuracy", "precision", "recall", "f1", "roc_auc", "pr_auc", "brier_score", "log_loss"]
+}

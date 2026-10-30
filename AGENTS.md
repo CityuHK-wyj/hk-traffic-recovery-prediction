@@ -52,3 +52,17 @@ Make a short plan and implement one verifiable milestone at a time.
 Run checks and inspect actual outputs. Distinguish succeeded, failed and unverified;
 never claim tests ran when they did not. Keep provenance and blockers in reports.
 Stop after the requested milestone; do not expand scope autonomously.
+
+## Agent skills
+
+### Issue tracker
+
+Track issues and specifications in this repository's GitHub Issues. Read `docs/agents/issue-tracker.md` before creating, updating or triaging issues.
+
+### Triage labels
+
+Use the five canonical triage roles mapped to the repository's GitHub labels. Read `docs/agents/triage-labels.md` before changing triage state.
+
+### Domain docs
+
+Use the single-context domain documentation layout. Before domain-sensitive work, read `docs/agents/domain.md` and the domain material it points to.
