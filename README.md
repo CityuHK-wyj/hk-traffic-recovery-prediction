@@ -1,6 +1,10 @@
 # Hong Kong Traffic Recovery Prediction
 
-## October 30 data-only handoff
+## Long-window data handoff (2023–September 2026)
+
+The [long-window data handoff](docs/long_window_data.md) covers 1,369 days, 24 selected lane units and 7,597 provisional recovery events. This is separate from the **73-event October 2026 short pilot** below. Use `configs/long_window.json` and a separate data root; do not mix their event tables or fitted references. See [data access and prepared-package instructions](docs/long_window_data_access.md). Large datasets are not committed; no hosted prepared-data link is available yet.
+
+## October 30 short-window pilot handoff
 
 The [selected-detector data pilot](docs/selected_data_pilot.md) adds portable
 download/preparation commands and measured coverage/event summaries from 15 real

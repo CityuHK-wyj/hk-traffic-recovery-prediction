@@ -1,0 +1,196 @@
+{
+  "status": "complete_data_only_handoff",
+  "provisional": true,
+  "window": [
+    "2023-01-01T00:00:00+08:00",
+    "2026-10-01T00:00:00+08:00"
+  ],
+  "evaluation_start_after_reference": "2023-02-01T00:00:00+08:00",
+  "days": 1369,
+  "ingestion": {
+    "status": "ingestion_and_quality_complete",
+    "source_rows": 153136290,
+    "compact_rows": 153135856,
+    "days": 1369,
+    "lane_units": 59,
+    "updated_at_utc": "2026-10-30T08:43:33.727598+00:00",
+    "next": "Build provisional recovery events and handoff; no ML"
+  },
+  "selected_units": 24,
+  "selected_detectors": 24,
+  "labels": {
+    "events": 7597,
+    "horizons": {
+      "15": {
+        "positive": 1451,
+        "negative": 5503,
+        "unknown": 643,
+        "reasons": {
+          "observed_without_recovery": 5503,
+          "confirmed_recovery": 1451,
+          "missing_or_invalid_bin": 643
+        }
+      },
+      "30": {
+        "positive": 2968,
+        "negative": 3831,
+        "unknown": 798,
+        "reasons": {
+          "observed_without_recovery": 3831,
+          "confirmed_recovery": 2968,
+          "missing_or_invalid_bin": 798
+        }
+      },
+      "60": {
+        "positive": 4727,
+        "negative": 1884,
+        "unknown": 986,
+        "reasons": {
+          "confirmed_recovery": 4727,
+          "observed_without_recovery": 1884,
+          "missing_or_invalid_bin": 986
+        }
+      }
+    }
+  },
+  "splits": {
+    "test": {
+      "events": 1529,
+      "horizons": {
+        "15": {
+          "positive": 332,
+          "negative": 1064,
+          "unknown": 133,
+          "reasons": {
+            "observed_without_recovery": 1064,
+            "confirmed_recovery": 332,
+            "missing_or_invalid_bin": 133
+          }
+        },
+        "30": {
+          "positive": 629,
+          "negative": 734,
+          "unknown": 166,
+          "reasons": {
+            "observed_without_recovery": 734,
+            "confirmed_recovery": 629,
+            "missing_or_invalid_bin": 166
+          }
+        },
+        "60": {
+          "positive": 1010,
+          "negative": 311,
+          "unknown": 208,
+          "reasons": {
+            "confirmed_recovery": 1010,
+            "observed_without_recovery": 311,
+            "missing_or_invalid_bin": 208
+          }
+        }
+      }
+    },
+    "train": {
+      "events": 3833,
+      "horizons": {
+        "15": {
+          "positive": 669,
+          "negative": 2834,
+          "unknown": 330,
+          "reasons": {
+            "observed_without_recovery": 2834,
+            "confirmed_recovery": 669,
+            "missing_or_invalid_bin": 330
+          }
+        },
+        "30": {
+          "positive": 1449,
+          "negative": 1979,
+          "unknown": 405,
+          "reasons": {
+            "observed_without_recovery": 1979,
+            "confirmed_recovery": 1449,
+            "missing_or_invalid_bin": 405
+          }
+        },
+        "60": {
+          "positive": 2295,
+          "negative": 1033,
+          "unknown": 505,
+          "reasons": {
+            "confirmed_recovery": 2295,
+            "observed_without_recovery": 1033,
+            "missing_or_invalid_bin": 505
+          }
+        }
+      }
+    },
+    "validation": {
+      "events": 2235,
+      "horizons": {
+        "15": {
+          "positive": 450,
+          "negative": 1605,
+          "unknown": 180,
+          "reasons": {
+            "observed_without_recovery": 1605,
+            "confirmed_recovery": 450,
+            "missing_or_invalid_bin": 180
+          }
+        },
+        "30": {
+          "positive": 890,
+          "negative": 1118,
+          "unknown": 227,
+          "reasons": {
+            "observed_without_recovery": 1118,
+            "confirmed_recovery": 890,
+            "missing_or_invalid_bin": 227
+          }
+        },
+        "60": {
+          "positive": 1422,
+          "negative": 540,
+          "unknown": 273,
+          "reasons": {
+            "confirmed_recovery": 1422,
+            "observed_without_recovery": 540,
+            "missing_or_invalid_bin": 273
+          }
+        }
+      }
+    }
+  },
+  "total_conflict_slots_all_observed_cohort_lanes": 426,
+  "rules": {
+    "congestion": 0.5,
+    "recovery": 0.8,
+    "onset_bins": 2,
+    "recovery_bins": 3,
+    "step_minutes": 5
+  },
+  "label_time": "Observed sustained recovery confirmation relative to archive prediction time; not exact physical recovery",
+  "availability": "Bin end +10min closure; late captures excluded before feature deduplication",
+  "split_outcome_maturity": "Additional conservative training/validation purge: max(prediction+70m, episode separation+10m) must precede next fit boundary",
+  "fit_policy": "Cohort Jan 1–7 2023 only; reference Jan 2023 only; no future screening",
+  "sensitivity_window": [
+    "2023-02-01T00:00:00+08:00",
+    "2023-05-01T00:00:00+08:00"
+  ],
+  "limitations": [
+    "Provisional thresholds; team review required",
+    "At most 24 lane units; not all Hong Kong roads",
+    "Same identifier across years does not prove hardware/lane geometry stability",
+    "Fixed 2023 reference can drift; review monthly coverage and future-period censoring",
+    "Sparse five-minute usable bins are not full 30-second coverage",
+    "Network/spatial features, external context and all ML remain with other members"
+  ],
+  "completed_at_utc": "2026-10-30T08:45:37.513894+00:00",
+  "figures": [
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-a1be8743b14f9ffa69d5.png",
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-a65b60b7ce5ba057a988.png",
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-5c7d0cdd9345c6b097cb.png",
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-47314dd533d763ddeabc.png",
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-e84d5c330d0d713a916b.png",
+    "D:/HK_Traffic_Recovery_Long_Window/reports/event_figures/event-de2cc49d90b1fcf1150a.png"
+  ]
+}
