@@ -1,0 +1,127 @@
+{
+  "source": "https://resource.data.one.gov.hk/td/traffic-detectors/rawSpeedVol-all.xml",
+  "scope": "2026-10-07 to 2026-10-21 inclusive archive capture days; not the full 2023-2026 study",
+  "records": [
+    {
+      "capture_day": "2026-10-07",
+      "archive": "raw\\20261007\\raw_20261007.zip",
+      "sha256": "29560bdfc0c1053b174c05ca6de273e646fdf0f236bcbf488ea069322b6e8b13",
+      "bytes": 31417651,
+      "snapshots": 871,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-08",
+      "archive": "raw\\20261008\\raw_20261008.zip",
+      "sha256": "1f2bfe1ea7180b968abffa5ddf2e166c7435bc665c75070e126c82c6b41291bd",
+      "bytes": 35548816,
+      "snapshots": 984,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-09",
+      "archive": "raw\\20261009\\raw_20261009.zip",
+      "sha256": "11bb0e35068764deac783963a277b5359a8be6fc1f1ada21d9a12174361e31a7",
+      "bytes": 35380833,
+      "snapshots": 982,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-10",
+      "archive": "raw\\20261010\\raw_20261010.zip",
+      "sha256": "4d0558171219d9a723a5bc998097c670b1922c7845a4095f5ae6f4006e69b24e",
+      "bytes": 35252017,
+      "snapshots": 960,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-11",
+      "archive": "raw\\20261011\\raw_20261011.zip",
+      "sha256": "44188f7bcdf770ac0f4ba81a2353a46b79422286d0d99b9f855676e595554403",
+      "bytes": 40390021,
+      "snapshots": 1129,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-12",
+      "archive": "raw\\20261012\\raw_20261012.zip",
+      "sha256": "ef71be373532fa19ed95ae8c48b4464806a59178816d6ebf92593371a8341fd4",
+      "bytes": 40535609,
+      "snapshots": 1115,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-13",
+      "archive": "raw\\20261013\\raw_20261013.zip",
+      "sha256": "447d55d0a60f39179fc27e7ee167754bc52e1bed24f20816b9a4f72060a950cb",
+      "bytes": 39675509,
+      "snapshots": 1092,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-14",
+      "archive": "raw\\20261014\\raw_20261014.zip",
+      "sha256": "47bb7b0ba81dc3a03e87f98f0453ef300e0435d47fb2cb0b01c9aeff7e92eb30",
+      "bytes": 37252629,
+      "snapshots": 1031,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-15",
+      "archive": "raw\\20261015\\raw_20261015.zip",
+      "sha256": "a389dd892db6ce079f131472009ff10035c4fcbc524b62395e6d47e5479d8694",
+      "bytes": 34014455,
+      "snapshots": 957,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-16",
+      "archive": "raw\\20261016\\raw_20261016.zip",
+      "sha256": "a872a7e2de559e9bcd45281dcd36d353b8c0992eabe0d1daf6b92d39f08d3e3c",
+      "bytes": 37568176,
+      "snapshots": 1035,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-17",
+      "archive": "raw\\20261017\\raw_20261017.zip",
+      "sha256": "d072fa8a3511d7e70fb9413046aa421e68a3e1971aeb00e7bc4409492cd1294e",
+      "bytes": 38505886,
+      "snapshots": 1053,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-18",
+      "archive": "raw\\20261018\\raw_20261018.zip",
+      "sha256": "7cde2dc85e1a10f84207b1427b390f4fbe0fcaaa1c5a4314f2466e4ccc017b33",
+      "bytes": 36925051,
+      "snapshots": 1061,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-19",
+      "archive": "raw\\20261019\\raw_20261019.zip",
+      "sha256": "c5f5162c2ead42efb388f5153648c2adaf3974e3a720d6ff3ca0b777e70ab6ca",
+      "bytes": 35963886,
+      "snapshots": 1044,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-20",
+      "archive": "raw\\20261020\\raw_20261020.zip",
+      "sha256": "2f4f08fcdcc24e992a6174c41bd8c639f69825a7d3830eccb93c2a22fe8b4278",
+      "bytes": 37001446,
+      "snapshots": 1029,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    },
+    {
+      "capture_day": "2026-10-21",
+      "archive": "raw\\20261021\\raw_20261021.zip",
+      "sha256": "811971bafc5f5baba76bbcbc8c853f6bbaa1255f18febd1c6ccb470526a7e894",
+      "bytes": 37904710,
+      "snapshots": 1048,
+      "check": "ZIP directory matches daily listing; first/last XML parsed; full row/coverage audit pending"
+    }
+  ],
+  "errors": []
+}
