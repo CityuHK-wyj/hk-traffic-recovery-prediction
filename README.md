@@ -1,5 +1,14 @@
 # Hong Kong Traffic Recovery Prediction
 
+## October 30 data-only handoff
+
+The [selected-detector data pilot](docs/selected_data_pilot.md) adds portable
+download/preparation commands and measured coverage/event summaries from 15 real
+archive dates. It produced 73 provisional lane-event rows (55 train, 5 validation,
+13 test) after unchanged coverage/label rules. This small convenience cohort is
+not the final research dataset. No model results, external integration or spatial
+approval are included in this handoff; raw/derived data remain local.
+
 Four-member MSc Data Science project: predict recovery **within 15, 30 and 60
 minutes**, and test whether neighboring-road conditions improve on local-only
 features. Core experiments: **November 4, 2026**; poster: **November 6–7**.
