@@ -15,6 +15,7 @@ import sklearn
 from pandas.api.types import is_numeric_dtype
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
+from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 from sklearn.pipeline import Pipeline
@@ -27,7 +28,12 @@ from traffic_recovery.models.evaluation import evaluate_predictions
 from traffic_recovery.models.provenance import run_metadata, start_run
 
 
-MODEL_NAMES = {"logistic": "logistic_regression", "tree": "decision_tree"}
+MODEL_NAMES = {
+    "logistic": "logistic_regression",
+    "tree": "decision_tree",
+    "rf": "random_forest",
+    "hgb": "hist_gradient_boosting",
+}
 
 
 @dataclass(frozen=True)
@@ -40,6 +46,8 @@ class SupervisedRules:
     default_feature_groups: tuple[str, ...]
     logistic: dict[str, Any]
     tree: dict[str, Any]
+    rf: dict[str, Any]
+    hgb: dict[str, Any]
 
     @classmethod
     def from_path(cls, path: Path) -> "SupervisedRules":
@@ -52,6 +60,8 @@ class SupervisedRules:
             default_feature_groups=tuple(payload["default_feature_groups"]),
             logistic=dict(payload["logistic_regression"]),
             tree=dict(payload["decision_tree"]),
+            rf=dict(payload.get("random_forest", {})),
+            hgb=dict(payload.get("hist_gradient_boosting", {})),
         )
         if rules.selection_metric != "validation_log_loss":
             raise ValueError("Only validation_log_loss selection is implemented")
@@ -121,6 +131,28 @@ def _candidates(kind: str, rules: SupervisedRules) -> list[dict[str, object]]:
                 rules.tree["class_weight"],
             )
         ]
+    if kind == "rf":
+        if not rules.rf:
+            raise ValueError("random_forest grid is not configured")
+        return [
+            {"n_estimators": n, "max_depth": depth, "min_samples_leaf": leaf,
+             "class_weight": weight}
+            for n, depth, leaf, weight in itertools.product(
+                rules.rf["n_estimators"], rules.rf["max_depth"],
+                rules.rf["min_samples_leaf"], rules.rf["class_weight"],
+            )
+        ]
+    if kind == "hgb":
+        if not rules.hgb:
+            raise ValueError("hist_gradient_boosting grid is not configured")
+        return [
+            {"max_depth": depth, "max_leaf_nodes": leaf, "learning_rate": rate,
+             "l2_regularization": reg}
+            for depth, leaf, rate, reg in itertools.product(
+                rules.hgb["max_depth"], rules.hgb["max_leaf_nodes"],
+                rules.hgb["learning_rate"], rules.hgb["l2_regularization"],
+            )
+        ]
     raise ValueError(f"Unknown model kind: {kind}")
 
 
@@ -137,6 +169,20 @@ def _pipeline(kind: str, x_train: pd.DataFrame, params: dict[str, object],
             criterion=str(rules.tree["criterion"]), max_depth=params["max_depth"],
             min_samples_leaf=int(params["min_samples_leaf"]),
             class_weight=params["class_weight"], random_state=rules.seed,
+        )
+    elif kind == "rf":
+        estimator = RandomForestClassifier(
+            n_estimators=int(params["n_estimators"]), max_depth=params["max_depth"],
+            min_samples_leaf=int(params["min_samples_leaf"]),
+            class_weight=params["class_weight"], random_state=rules.seed,
+            n_jobs=-1,
+        )
+    elif kind == "hgb":
+        estimator = HistGradientBoostingClassifier(
+            max_depth=params["max_depth"], max_leaf_nodes=params["max_leaf_nodes"],
+            learning_rate=float(params["learning_rate"]),
+            l2_regularization=float(params["l2_regularization"]),
+            random_state=rules.seed, early_stopping=False,
         )
     else:
         raise ValueError(f"Unknown model kind: {kind}")
@@ -230,14 +276,27 @@ def train_supervised(
 
         feature_names = best.named_steps["preprocess"].get_feature_names_out()
         classifier = best.named_steps["classifier"]
-        values = (classifier.coef_[0] if kind == "logistic"
-                  else classifier.feature_importances_)
+        if kind == "logistic":
+            values = classifier.coef_[0]
+            importance_type = "coefficient"
+        elif kind == "hgb":
+            from sklearn.inspection import permutation_importance
+
+            importance = permutation_importance(
+                best, x_validation, y_validation, n_repeats=10,
+                random_state=rules.seed, scoring="neg_log_loss",
+            )
+            values = importance.importances_mean
+            importance_type = "permutation_importance"
+        else:
+            values = classifier.feature_importances_
+            importance_type = "feature_importance"
         for feature_name, value in zip(feature_names, values):
             interpretation_rows.append({
                 "model_version": rules.version, "model": model_name,
                 "feature_set": feature_set, "horizon_min": horizon,
                 "feature": feature_name,
-                "importance_type": "coefficient" if kind == "logistic" else "feature_importance",
+                "importance_type": importance_type,
                 "value": float(value),
                 "odds_ratio": math.exp(max(-700.0, min(700.0, float(value))))
                 if kind == "logistic" else math.nan,

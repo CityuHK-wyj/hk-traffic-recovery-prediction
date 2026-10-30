@@ -58,8 +58,8 @@ class ComparisonRules:
                 raise ValueError(f"Feature set {name} has invalid groups")
         if rules.reference_feature_set not in names:
             raise ValueError("reference_feature_set is not configured")
-        if not rules.models or not set(rules.models) <= {"logistic", "tree"}:
-            raise ValueError("models may contain only logistic and tree")
+        if not rules.models or not set(rules.models) <= {"logistic", "tree", "rf", "hgb"}:
+            raise ValueError("models may contain only logistic, tree, rf and hgb")
         if rules.comparison_split not in {"train", "validation", "test"}:
             raise ValueError("comparison_split is invalid")
         if not rules.metrics or not set(rules.metrics.values()) <= {"higher", "lower"}:
@@ -72,7 +72,10 @@ def compare_to_reference(metrics: pd.DataFrame, rules: ComparisonRules) -> pd.Da
     selected = metrics.loc[
         metrics.split.eq(rules.comparison_split)
         & metrics.metric_name.isin(rules.metrics)
-        & metrics.model.isin(["logistic_regression", "decision_tree"])
+        & metrics.model.isin([
+            "logistic_regression", "decision_tree",
+            "random_forest", "hist_gradient_boosting",
+        ])
     ].copy()
     reference = selected.loc[
         selected.feature_set.eq(rules.reference_feature_set),

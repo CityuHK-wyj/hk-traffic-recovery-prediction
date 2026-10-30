@@ -1,7 +1,7 @@
 {
   "version": "feature-group-comparison-v1",
   "scientific_approval": "pending_real_cohort_and_team_review",
-  "models": ["logistic", "tree"],
+  "models": ["logistic", "tree", "rf", "hgb"],
   "reference_feature_set": "local",
   "feature_sets": [
     {"name": "local", "groups": ["local"]},
