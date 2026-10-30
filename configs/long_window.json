@@ -1,0 +1,22 @@
+{
+  "status": "provisional_pending_team_review",
+  "version": "long-window-2023-202609-v1",
+  "observation_start": "2023-01-01T00:00:00+08:00",
+  "observation_end": "2026-10-01T00:00:00+08:00",
+  "selection_end": "2023-01-08T00:00:00+08:00",
+  "reference_end": "2023-02-01T00:00:00+08:00",
+  "validation_start": "2025-01-01T00:00:00+08:00",
+  "test_start": "2026-01-01T00:00:00+08:00",
+  "valid_5m_mean_min": 0.95,
+  "valid_5m_daily_min": 0.90,
+  "flow_5m_mean_min": 0.80,
+  "max_units": 24,
+  "min_reference_bins": 300,
+  "congestion_ratio": 0.5,
+  "recovery_ratio": 0.8,
+  "onset_bins": 2,
+  "recovery_bins": 3,
+  "sensitivity_congestion": [0.4, 0.5, 0.6],
+  "sensitivity_recovery": [0.7, 0.8, 0.9],
+  "sensitivity_end": "2023-05-01T00:00:00+08:00"
+}

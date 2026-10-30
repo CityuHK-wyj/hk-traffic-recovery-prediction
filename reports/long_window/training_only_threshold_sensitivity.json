@@ -1,0 +1,207 @@
+{
+  "window": [
+    "2023-02-01T00:00:00+08:00",
+    "2023-05-01T00:00:00+08:00"
+  ],
+  "purpose": "Descriptive rule sensitivity on training-period history only; no test threshold tuning",
+  "results": [
+    {
+      "congestion": 0.4,
+      "recovery": 0.7,
+      "events": 406,
+      "horizons": {
+        "15": {
+          "positive": 83,
+          "negative": 286,
+          "unknown": 37
+        },
+        "30": {
+          "positive": 173,
+          "negative": 189,
+          "unknown": 44
+        },
+        "60": {
+          "positive": 267,
+          "negative": 81,
+          "unknown": 58
+        }
+      }
+    },
+    {
+      "congestion": 0.4,
+      "recovery": 0.8,
+      "events": 386,
+      "horizons": {
+        "15": {
+          "positive": 52,
+          "negative": 302,
+          "unknown": 32
+        },
+        "30": {
+          "positive": 129,
+          "negative": 218,
+          "unknown": 39
+        },
+        "60": {
+          "positive": 224,
+          "negative": 109,
+          "unknown": 53
+        }
+      }
+    },
+    {
+      "congestion": 0.4,
+      "recovery": 0.9,
+      "events": 310,
+      "horizons": {
+        "15": {
+          "positive": 20,
+          "negative": 264,
+          "unknown": 26
+        },
+        "30": {
+          "positive": 66,
+          "negative": 213,
+          "unknown": 31
+        },
+        "60": {
+          "positive": 102,
+          "negative": 170,
+          "unknown": 38
+        }
+      }
+    },
+    {
+      "congestion": 0.5,
+      "recovery": 0.7,
+      "events": 463,
+      "horizons": {
+        "15": {
+          "positive": 105,
+          "negative": 317,
+          "unknown": 41
+        },
+        "30": {
+          "positive": 197,
+          "negative": 217,
+          "unknown": 49
+        },
+        "60": {
+          "positive": 310,
+          "negative": 90,
+          "unknown": 63
+        }
+      }
+    },
+    {
+      "congestion": 0.5,
+      "recovery": 0.8,
+      "events": 437,
+      "horizons": {
+        "15": {
+          "positive": 64,
+          "negative": 337,
+          "unknown": 36
+        },
+        "30": {
+          "positive": 145,
+          "negative": 249,
+          "unknown": 43
+        },
+        "60": {
+          "positive": 254,
+          "negative": 127,
+          "unknown": 56
+        }
+      }
+    },
+    {
+      "congestion": 0.5,
+      "recovery": 0.9,
+      "events": 352,
+      "horizons": {
+        "15": {
+          "positive": 19,
+          "negative": 303,
+          "unknown": 30
+        },
+        "30": {
+          "positive": 65,
+          "negative": 251,
+          "unknown": 36
+        },
+        "60": {
+          "positive": 105,
+          "negative": 201,
+          "unknown": 46
+        }
+      }
+    },
+    {
+      "congestion": 0.6,
+      "recovery": 0.7,
+      "events": 601,
+      "horizons": {
+        "15": {
+          "positive": 149,
+          "negative": 410,
+          "unknown": 42
+        },
+        "30": {
+          "positive": 265,
+          "negative": 285,
+          "unknown": 51
+        },
+        "60": {
+          "positive": 404,
+          "negative": 130,
+          "unknown": 67
+        }
+      }
+    },
+    {
+      "congestion": 0.6,
+      "recovery": 0.8,
+      "events": 553,
+      "horizons": {
+        "15": {
+          "positive": 83,
+          "negative": 434,
+          "unknown": 36
+        },
+        "30": {
+          "positive": 170,
+          "negative": 339,
+          "unknown": 44
+        },
+        "60": {
+          "positive": 308,
+          "negative": 188,
+          "unknown": 57
+        }
+      }
+    },
+    {
+      "congestion": 0.6,
+      "recovery": 0.9,
+      "events": 440,
+      "horizons": {
+        "15": {
+          "positive": 23,
+          "negative": 385,
+          "unknown": 32
+        },
+        "30": {
+          "positive": 71,
+          "negative": 331,
+          "unknown": 38
+        },
+        "60": {
+          "positive": 117,
+          "negative": 279,
+          "unknown": 44
+        }
+      }
+    }
+  ]
+}

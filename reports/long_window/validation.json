@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "checks": [
+    "45 official monthly archives plus next-day boundary",
+    "ZIP snapshot counts reconcile with processed capture entries including duplicate names",
+    "All compact capture files and final handoff outputs match recorded SHA-256",
+    "One unique event ID/key, binary-or-unknown labels, time-aware prediction dates",
+    "One cleaned partition per observation day, valid domains, all conflicting/offline measurements masked"
+  ],
+  "cleaned_lane_observations": {
+    "rows": 149984588,
+    "valid_speed_rows": 147790583,
+    "valid_occupancy_rows": 147790583,
+    "valid_volume_rows": 147790583,
+    "conflicts": 426,
+    "unmasked_conflicts": 0,
+    "unmasked_offline": 0,
+    "invalid_domain_values": 0,
+    "first_observation": "2023-01-01 00:00:30+08",
+    "last_observation": "2026-10-01 00:00:00+08"
+  },
+  "event_rows": 7597,
+  "limitations": "No claim of physical lane stability, incident causality, exact recovery time, model accuracy, or scientific approval."
+}

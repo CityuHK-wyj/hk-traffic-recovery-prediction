@@ -1,0 +1,9 @@
+resolution,cutoff,policy,lane_units,detectors
+30s,0.9,mean,1365,499
+30s,0.9,min,941,349
+30s,0.95,mean,1063,393
+30s,0.95,min,0,0
+5m,0.9,mean,1452,529
+5m,0.9,min,1195,439
+5m,0.95,mean,1307,477
+5m,0.95,min,942,349
