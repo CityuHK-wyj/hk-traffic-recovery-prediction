@@ -1,4 +1,4 @@
-# Long-window data preparation (local, not uploaded)
+# Long-window data preparation (prepared data published; raw archives local)
 
 This is Member 1's data-only extension of the existing short-window pilot.
 The observation window is 2023-01-01 through 2026-09-30 inclusive (HKT).
@@ -101,4 +101,4 @@ unchanged. Full 30-second coverage and sparse usable 5-minute bins are different
 metrics. All scientific definitions and fold assignments remain provisional.
 
 No network/spatial implementation, external-context engineering or machine
-learning is added by this extension. No remote branch, PR or merge is created.
+learning is added by this extension. These preparation scripts do not create remote branches, PRs or merges. Prepared data are now distributed through the Release linked in `long_window_data_access.md`.

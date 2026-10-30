@@ -1,4 +1,4 @@
-本报告记录本地完成时的状态；代码现拟通过独立长窗口PR提交。数据附件尚未发布，获取方式见 ../../docs/long_window_data_access.md。短窗口PR #6为73个事件，本报告长窗口为7,597个事件，不能混用。
+处理数据现已发布：[长窗口数据Release](https://github.com/CityuHK-wyj/hk-traffic-recovery-prediction/releases/tag/data-long-window-2023-2026-v1)。下载方法见 ../../docs/long_window_data_access.md。下文保留本地生成时的状态记录；短窗口PR #6为73个事件，本报告长窗口为7,597个事件，不能混用。
 
 # 香港交通恢复预测：长窗口数据交接
 
